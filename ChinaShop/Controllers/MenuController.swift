@@ -21,7 +21,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         MenuItem(name : "KARTOHA" , price : 13.5)
     ]) 
         
-    var backetModel : BacketModel = BacketModel()
+    var backetModel = BacketModel()
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -42,16 +42,16 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fromMenuToBacket"{
-        for item in model.items {
-            if item.count > 0{
-                backetModel.items.append(item)
-            }
+        if segue.identifier == "basketSegue"{
+            for item in model.items {
+                if item.count > 0{
+                    backetModel.items.append(item)
+                }
             }
             if let backetController :BacketMenuController = segue.destination as? BacketMenuController  {
-                backetController.backetModel! = self.backetModel 
+                backetController.backetModel = self.backetModel 
+            }
         }
-     }
     }
     
     override func didReceiveMemoryWarning() {

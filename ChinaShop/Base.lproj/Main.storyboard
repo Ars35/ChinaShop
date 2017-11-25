@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ge2-77-ADH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ge2-77-ADH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,13 +77,12 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Gqm-ts-TNV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="GKY-jI-a9s" kind="show" id="vMa-on-oUc"/>
+                                <segue destination="GKY-jI-a9s" kind="show" identifier="basketSegue" id="vMa-on-oUc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myMenuView" destination="c5e-uv-ViX" id="oku-Px-TgE"/>
-                        <segue destination="GKY-jI-a9s" kind="show" identifier="fromMenuToBacket" id="0lD-8k-g9P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aub-0B-TGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,7 +176,4 @@
     <resources>
         <image name="logo" width="666" height="322"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0lD-8k-g9P"/>
-    </inferredMetricsTieBreakers>
 </document>

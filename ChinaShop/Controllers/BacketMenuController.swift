@@ -13,11 +13,14 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     
     
     @IBOutlet weak var tableView: UITableView!
-    var backetModel : BacketModel? = nil{
-        didSet{
-            self.tableView.reloadData()
-        }
-    }
+    var backetModel : BacketModel?
+//    {
+//        didSet{
+//
+//            self.tableView.reloadData()
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard  backetModel != nil else {
             return 0
