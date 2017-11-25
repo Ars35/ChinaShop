@@ -8,11 +8,36 @@
 
 import UIKit
 
-class BacketMenuController: UIViewController {
-    var backetModel : BacketModel? = nil
+class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    var backetModel : BacketModel? = nil{
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard  backetModel != nil else {
+            return 0
+        }
+        return backetModel!.items.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : BacketViewCell = tableView.dequeueReusableCell(withIdentifier: "reuseTableCell", for: indexPath) as! BacketViewCell
+        
+        cell.backetPrice.text = backetModel!.items[indexPath.row].price.description
+        cell.backetName.text = backetModel!.items[indexPath.row].name
+        return cell
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(backetModel?.items.count)
         // Do any additional setup after loading the view.
     }
 

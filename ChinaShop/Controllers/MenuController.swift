@@ -27,6 +27,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return 1
     }
    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item : MenuItem = model.items[indexPath.item]
         item.count += 1
+        print(item.count)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,7 +49,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             }
             if let backetController :BacketMenuController = segue.destination as? BacketMenuController  {
-                self.backetModel = backetController.backetModel!
+                backetController.backetModel! = self.backetModel 
         }
      }
     }
