@@ -13,6 +13,7 @@ import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var myMenuView: UICollectionView!
     
     var model : MenuModel = MenuModel(items: [
@@ -33,6 +34,8 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         myMenuView.delegate = self
         myMenuView.dataSource = self
+        
+        
 
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
