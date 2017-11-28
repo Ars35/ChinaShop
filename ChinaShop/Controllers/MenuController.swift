@@ -17,9 +17,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var myMenuView: UICollectionView!
     
     var model : MenuModel = MenuModel(items: [
-        MenuItem(name: "sushi", price: 5),
-        MenuItem(name: "roll", price: 12.2),
-        MenuItem(name : "KARTOHA" , price : 13.5)
+        MenuItem(name: "sushi", price: 5, url: "https://img.grouponcdn.com/deal/hfefAup1zQWBE2K8sWURgS27xax/hf-846x508/v1/c700x420.jpg"),
+        MenuItem(name: "roll", price: 12.2, url: "http://www.sam-sebe-povar.com/sites/default/files/images/sushi-plate.preview.jpg"),
+        MenuItem(name : "KARTOHA" , price : 13.5, url: "http://www.rabstol.net/uploads/gallery/comthumb/95/rabstol_net_sushi_09.jpg")
     ]) 
         
     var backetModel = BacketModel()
@@ -34,6 +34,10 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         myMenuView.delegate = self
         myMenuView.dataSource = self
+        
+        //test purpose
+        DownloadService.instance.delegate = self
+        
         
         
 
@@ -56,11 +60,6 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -71,12 +70,28 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell : MenuCell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuItemCell" , for: indexPath) as! MenuCell
     
         // Configure the cell
-       cell.nameLabel.text = model.items[indexPath.item].name
-        cell.priceLabel.text = model.items[indexPath.item].price.description
+        let menuItem = model.items[indexPath.item]
+        
+        cell.cellInit(item: menuItem)
         
         
         return cell
     }
+}
 
-
+extension MenuController: DownloadServiceDelegate {
+    func downloadCompleated(responce: DownloadResponce) {
+        print("This is Message from delegate.")
+        if responce.errorString != nil {
+            print("Error: \(responce.errorString!)")
+        } else {
+            print("responce: \(responce.urlPatch!)")
+        }
+        
+        DispatchQueue.main.async {
+            self.myMenuView.reloadData()
+        }
+    }
+    
+    
 }

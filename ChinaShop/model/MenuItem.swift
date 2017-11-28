@@ -12,10 +12,14 @@ class MenuItem: NSObject {
     let name : String
     let price : Double
     var count : Int = 0
+    var url: String?
+    var localFilePath: String?
+    var isDownloading: Bool = false
     
-    init(name : String , price: Double) {
+    init(name : String , price: Double, url: String) {
         self.name = name
         self.price = price
+        self.url = url
     }
     
 }
