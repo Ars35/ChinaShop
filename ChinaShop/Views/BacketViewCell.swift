@@ -12,17 +12,19 @@ class BacketViewCell: UITableViewCell {
 
     
     @IBOutlet weak var backetName: UILabel!
-    @IBOutlet weak var backetPrice: UILabel!
+    @IBOutlet weak var backetPrice: PriceLable!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var backetImage: UIImageView!
+    @IBOutlet weak var itemsCounLbl: UILabel!
+    
+    func cellInit(item: MenuItem) {
+        
+        backetName.text = item.name
+        backetPrice.setText(price: item.price)
+        itemsCounLbl.text = String(item.count)
+        
+        let image = UIImage(contentsOfFile: item.localFilePath!)
+        backetImage.image = image
     }
 
 }

@@ -13,51 +13,40 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     
     
     @IBOutlet weak var tableView: UITableView!
-    var backetModel : BacketModel?
-//    {
-//        didSet{
-//
-//            self.tableView.reloadData()
-//        }
-//    }
+
+    @IBOutlet weak var totalLbl: UILabel!
+    
+    var orderItemsArray = [MenuItem]()
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard  backetModel != nil else {
-            return 0
-        }
-        return backetModel!.items.count
+        
+        return orderItemsArray.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : BacketViewCell = tableView.dequeueReusableCell(withIdentifier: "reuseTableCell", for: indexPath) as! BacketViewCell
         
-        cell.backetPrice.text = backetModel!.items[indexPath.row].price.description
-        cell.backetName.text = backetModel!.items[indexPath.row].name
+        cell.cellInit(item: orderItemsArray[indexPath.row])
+        
         return cell
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(backetModel?.items.count)
+        orderItemsArray = MainService.instance.getBacket()
+        print(orderItemsArray.count)
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        totalLbl.text = calculateTotalToString()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func calculateTotalToString() -> String {
+        var total = 0.0
+        for item in orderItemsArray {
+            total += Double(item.count) * item.price
+        }
+        return "\(total) RMB"
     }
-    */
-
 }

@@ -16,14 +16,7 @@ class MenuCell: UICollectionViewCell {
     
     func cellInit(item: MenuItem) {
         nameLabel.text = item.name
-        //priceLabel.text = String(item.price)
         priceLabel.setText(price: item.price)
-        
-//        priceLabel.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        priceLabel.layer.borderWidth = 1.0
-//        priceLabel.layer.cornerRadius = 5.0
-        
-//        priceLabel.clipsToBounds = true
         
         if item.localFilePath != nil {
             

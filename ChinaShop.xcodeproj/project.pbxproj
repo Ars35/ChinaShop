@@ -24,6 +24,7 @@
 		FF316C931FC4B511001B81AD /* shNJEUrL1ps.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C8F1FC4B511001B81AD /* shNJEUrL1ps.jpg */; };
 		FF316C941FC4B511001B81AD /* 3u_404btaj4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */; };
 		FF316C951FC4B511001B81AD /* s84BefN8uCw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */; };
+		FF8B4DED1FD374E40021821F /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B4DEC1FD374E40021821F /* MainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FF316C8F1FC4B511001B81AD /* shNJEUrL1ps.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shNJEUrL1ps.jpg; sourceTree = "<group>"; };
 		FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3u_404btaj4.jpg; sourceTree = "<group>"; };
 		FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s84BefN8uCw.jpg; sourceTree = "<group>"; };
+		FF8B4DEC1FD374E40021821F /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FF2455AD1FCC3F55005BBF45 /* DownloadService.swift */,
+				FF8B4DEC1FD374E40021821F /* MainService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				A6CAD4121FC3071700230DB7 /* BacketMenuController.swift in Sources */,
 				A6414D631FBC655F00FFD903 /* ViewController.swift in Sources */,
+				FF8B4DED1FD374E40021821F /* MainService.swift in Sources */,
 				A6414D731FBC660700FFD903 /* MenuController.swift in Sources */,
 				A6414D7E1FBC697A00FFD903 /* MenuModel.swift in Sources */,
 				A6414D801FBC6A3600FFD903 /* MenuItem.swift in Sources */,
@@ -369,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ars.ChinaShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -384,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ars.ChinaShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
