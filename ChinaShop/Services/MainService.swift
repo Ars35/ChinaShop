@@ -10,7 +10,7 @@ import Foundation
 
 class MainService {
     
-    static var instance = MainService()
+    static let instance = MainService()
     
     var itemList = [MenuItem]()
     

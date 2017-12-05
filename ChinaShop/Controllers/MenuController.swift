@@ -11,16 +11,11 @@ import UIKit
 
 
 
-class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
+class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var myMenuView: UICollectionView!
     
-//    var model : MenuModel = MenuModel(items: [
-//        MenuItem(name: "sushi", price: 5, url: "https://img.grouponcdn.com/deal/hfefAup1zQWBE2K8sWURgS27xax/hf-846x508/v1/c700x420.jpg"),
-//        MenuItem(name: "roll", price: 12.2, url: "http://www.sam-sebe-povar.com/sites/default/files/images/sushi-plate.preview.jpg"),
-//        MenuItem(name : "KARTOHA" , price : 13.5, url: "http://www.rabstol.net/uploads/gallery/comthumb/95/rabstol_net_sushi_09.jpg")
-//    ])
     var menuItemsArray = [MenuItem]()
     
     var backetModel = BacketModel()
@@ -47,18 +42,6 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         print("Added to backet \(item.name)")
         
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "basketSegue"{
-//            for item in menuItemsArray {
-//                if item.count > 0{
-//                    backetModel.items.append(item)
-//                }
-//            }
-//            if let backetController :BacketMenuController = segue.destination as? BacketMenuController  {
-//                backetController.backetModel = self.backetModel 
-//            }
-//        }
-//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -72,9 +55,21 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let menuItem = menuItemsArray[indexPath.item]
         
         cell.cellInit(item: menuItem)
-        
-        
+
         return cell
+    }
+    
+    
+    //Авторасчет ширины ячейки
+    //UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let numberOfColumns: CGFloat = 2
+        
+        let spaceBetweenCells: CGFloat = 15
+        let cellDemension = (collectionView.bounds.width - spaceBetweenCells) / numberOfColumns
+        return CGSize(width: cellDemension, height: cellDemension)
+
     }
 }
 

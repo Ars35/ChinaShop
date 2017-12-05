@@ -12,7 +12,7 @@ typealias DownloadResponce = (urlPatch: String?, errorString: String?)
 
 class DownloadService: NSObject, URLSessionDownloadDelegate {
     
-    static public var instance = DownloadService()
+    static public let instance = DownloadService()
     
     var activeDownloads: [String: MenuItem] = [:]
     

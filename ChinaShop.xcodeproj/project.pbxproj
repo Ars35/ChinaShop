@@ -25,6 +25,8 @@
 		FF316C941FC4B511001B81AD /* 3u_404btaj4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */; };
 		FF316C951FC4B511001B81AD /* s84BefN8uCw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */; };
 		FF8B4DED1FD374E40021821F /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B4DEC1FD374E40021821F /* MainService.swift */; };
+		FFE5EC071FD6C3E800C86643 /* SpecialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5EC061FD6C3E800C86643 /* SpecialsService.swift */; };
+		FFE5EC0A1FD6C47F00C86643 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5EC091FD6C47F00C86643 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3u_404btaj4.jpg; sourceTree = "<group>"; };
 		FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s84BefN8uCw.jpg; sourceTree = "<group>"; };
 		FF8B4DEC1FD374E40021821F /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		FFE5EC061FD6C3E800C86643 /* SpecialsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialsService.swift; sourceTree = "<group>"; };
+		FFE5EC091FD6C47F00C86643 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		A6414D5F1FBC655F00FFD903 /* ChinaShop */ = {
 			isa = PBXGroup;
 			children = (
+				FFE5EC081FD6C46D00C86643 /* Utilities */,
 				FF2455AC1FCC3F20005BBF45 /* Services */,
 				FF316C8D1FC4B4F8001B81AD /* JPG ORIGIN */,
 				A6414D601FBC655F00FFD903 /* AppDelegate.swift */,
@@ -129,6 +134,7 @@
 			children = (
 				FF2455AD1FCC3F55005BBF45 /* DownloadService.swift */,
 				FF8B4DEC1FD374E40021821F /* MainService.swift */,
+				FFE5EC061FD6C3E800C86643 /* SpecialsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -141,6 +147,14 @@
 				FF316C8F1FC4B511001B81AD /* shNJEUrL1ps.jpg */,
 			);
 			path = "JPG ORIGIN";
+			sourceTree = "<group>";
+		};
+		FFE5EC081FD6C46D00C86643 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FFE5EC091FD6C47F00C86643 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +234,7 @@
 			files = (
 				A6CAD4121FC3071700230DB7 /* BacketMenuController.swift in Sources */,
 				A6414D631FBC655F00FFD903 /* ViewController.swift in Sources */,
+				FFE5EC071FD6C3E800C86643 /* SpecialsService.swift in Sources */,
 				FF8B4DED1FD374E40021821F /* MainService.swift in Sources */,
 				A6414D731FBC660700FFD903 /* MenuController.swift in Sources */,
 				A6414D7E1FBC697A00FFD903 /* MenuModel.swift in Sources */,
@@ -228,6 +243,7 @@
 				A6414D791FBC686800FFD903 /* MenuCell.swift in Sources */,
 				A6414D611FBC655F00FFD903 /* AppDelegate.swift in Sources */,
 				A6ECDFF01FC862C0005E04FC /* BacketViewCell.swift in Sources */,
+				FFE5EC0A1FD6C47F00C86643 /* Constants.swift in Sources */,
 				A633772E1FC30DE00083198A /* BacketModel.swift in Sources */,
 				FF2455B01FCDF369005BBF45 /* PriceLable.swift in Sources */,
 			);

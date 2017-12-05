@@ -28,7 +28,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c5e-uv-ViX">
                                 <rect key="frame" x="16" y="193" width="343" height="474"/>
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.13333333333333333" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X4J-f9-8gV">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="X4J-f9-8gV">
                                     <size key="itemSize" width="166" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -66,6 +66,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="5D9-bu-4VY" secondAttribute="bottom" constant="10" id="97m-Rk-iqs"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="5D9-bu-4VY" secondAttribute="trailing" id="9UZ-Ll-vgu"/>
                                             <constraint firstItem="gb1-3e-jU3" firstAttribute="leading" secondItem="rNZ-Bf-126" secondAttribute="leading" id="UBh-ix-aa3"/>
+                                            <constraint firstItem="3KD-C5-H3U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rNZ-Bf-126" secondAttribute="leading" symbolic="YES" id="XMv-nA-bKY"/>
                                             <constraint firstAttribute="bottom" secondItem="gb1-3e-jU3" secondAttribute="bottom" id="Y1R-FG-JYt"/>
                                             <constraint firstItem="3KD-C5-H3U" firstAttribute="height" secondItem="gb1-3e-jU3" secondAttribute="height" multiplier="1:5.9" id="aKH-NO-UmD"/>
                                             <constraint firstAttribute="trailing" secondItem="gb1-3e-jU3" secondAttribute="trailing" id="hIr-oW-nQU"/>
@@ -84,7 +85,7 @@
                                 </cells>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9x7-we-eUy">
-                                <rect key="frame" x="0.0" y="72" width="359" height="115"/>
+                                <rect key="frame" x="16" y="72" width="343" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="ACw-PR-TkD"/>
                                 </constraints>
@@ -92,7 +93,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="9x7-we-eUy" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" id="FsP-9w-r2Q"/>
+                            <constraint firstItem="9x7-we-eUy" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" constant="16" id="FsP-9w-r2Q"/>
                             <constraint firstAttribute="trailing" secondItem="c5e-uv-ViX" secondAttribute="trailing" constant="16" id="VOL-oH-KyK"/>
                             <constraint firstAttribute="bottom" secondItem="c5e-uv-ViX" secondAttribute="bottom" id="a1H-fi-DPL"/>
                             <constraint firstItem="c5e-uv-ViX" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" constant="16" id="aZx-5L-UTR"/>
