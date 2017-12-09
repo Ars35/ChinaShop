@@ -39,7 +39,7 @@ class MainService {
             
             print(json)
             for item in (json?.data.items)! {
-                let tempMenuItem = MenuItem(id: item.id, name: item.name, itemId: item.itemId, description: item.description, price: Double(item.price)!, url: item.imageUrl!)
+                let tempMenuItem = MenuItem(id: item._id, name: item.name, itemId: item.itemId, description: item.description, price: Double(item.price)!, url: item.imageUrl!)
                 self.itemList.append(tempMenuItem)
             }
             completion("PARSING OK")

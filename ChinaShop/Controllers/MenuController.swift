@@ -33,7 +33,10 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {
                 self.menuItemsArray = MainService.instance.itemList
-                self.myMenuView.reloadData()
+                DispatchQueue.main.async {
+                    self.myMenuView.reloadData()
+                }
+                
                 
             }else {
                 print(error)
