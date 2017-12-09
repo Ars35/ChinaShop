@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuModel: NSObject {
+class MenuModel: NSObject , Codable{
    let items : [MenuItem]
 
     init(items: [MenuItem]){

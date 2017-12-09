@@ -29,7 +29,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //test purpose
         DownloadService.instance.delegate = self
         
-        menuItemsArray = MainService.instance.getItems()
+       // menuItemsArray = MainService.instance.getItems()
         
         
 
