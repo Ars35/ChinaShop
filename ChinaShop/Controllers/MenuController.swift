@@ -29,7 +29,16 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //test purpose
         DownloadService.instance.delegate = self
         
-       // menuItemsArray = MainService.instance.getItems()
+       //menuItemsArray = MainService.instance.getItems()
+        MainService.instance.getItems { (error) in
+            if error == "PARSING OK" {
+                self.menuItemsArray = MainService.instance.itemList
+                self.myMenuView.reloadData()
+                
+            }else {
+                print(error)
+            }
+        }
         
         
 

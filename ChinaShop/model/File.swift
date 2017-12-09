@@ -9,21 +9,28 @@
 import Foundation
 
 struct MenuItemStruct : Decodable{
-    var id : String = ""
-    let name : String  = ""
-    var itemId : String  = ""
-    var description: String  = ""
-    let price : String  = ""
-    var count : Int = 0
-    var url: String?
-    var localFilePath: String?
-    var isDownloading: Bool = false
+    //
+//    {
+//    "_id": "5a2249028956530014549ec4",
+//    "name": "california sesame",
+//    "itemId": "2pARqv",
+//    "description": "california description",
+//    "price": "36",
+//    "imageUrl": "http://res.cloudinary.com/hqwr3xrqp/image/upload/v1512196354/xatizexwgmauhuexz8jk.png"
+//    }
+    //
+    var id : String
+    let name : String
+    var itemId : String
+    var description: String
+    let price : String
+    var imageUrl: String?
 }
 struct DataStruct : Decodable{
     var items : [MenuItemStruct]
 }
 struct ResponceMenu : Decodable{
-    var status : String = ""
+    var status : String
     var data : DataStruct
     
 }
