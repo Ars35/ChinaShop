@@ -36,7 +36,6 @@ class MainService {
                 print(errorMessage)
                 return
             }
-            
             print(json)
             for item in (json?.data.items)! {
                 let tempMenuItem = MenuItem(id: item._id, name: item.name, itemId: item.itemId, description: item.description, price: Double(item.price)!, url: item.imageUrl!)
