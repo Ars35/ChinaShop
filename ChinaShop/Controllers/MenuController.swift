@@ -16,6 +16,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var myMenuView: UICollectionView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var menuItemsArray = [MenuItem]()
     
     var backetModel = BacketModel()
@@ -25,6 +26,8 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         myMenuView.delegate = self
         myMenuView.dataSource = self
+        spinner.isHidden = false
+        spinner.startAnimating()
         
         //test purpose
         DownloadService.instance.delegate = self
@@ -33,26 +36,38 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {
                 self.menuItemsArray = MainService.instance.itemList
+                self.getSpecialList()
                 DispatchQueue.main.async {
                     self.myMenuView.reloadData()
+                    
                 }
             }else {
                 print(error)
             }
         }
+        
+        
+        
+
+    }
+    
+    private func getSpecialList() {
         //загрузка спешиалс
         SpecialService.instance.getSpecialList { (error) in
             if error == "PARSING OK" {
+                DispatchQueue.main.async {
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
+                }
+                
                 let specialUrlImage = SpecialService.instance.spesialList[0].imageUrl
                 print("SPECIAL URL STRING: \(specialUrlImage)")
             }else {
                 print(error)
             }
         }
-        
-        
-
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item : MenuItem = menuItemsArray[indexPath.item]
         //dobavit v service

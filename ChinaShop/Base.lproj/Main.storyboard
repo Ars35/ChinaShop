@@ -90,14 +90,19 @@
                                     <constraint firstAttribute="height" constant="115" id="ACw-PR-TkD"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="a9C-mm-ol3">
+                                <rect key="frame" x="169" y="265" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="9x7-we-eUy" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" constant="16" id="FsP-9w-r2Q"/>
+                            <constraint firstItem="a9C-mm-ol3" firstAttribute="centerX" secondItem="1dm-pq-bmg" secondAttribute="centerX" id="RPp-S0-Yc5"/>
                             <constraint firstAttribute="trailing" secondItem="c5e-uv-ViX" secondAttribute="trailing" constant="16" id="VOL-oH-KyK"/>
                             <constraint firstAttribute="bottom" secondItem="c5e-uv-ViX" secondAttribute="bottom" id="a1H-fi-DPL"/>
                             <constraint firstItem="c5e-uv-ViX" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" constant="16" id="aZx-5L-UTR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9x7-we-eUy" secondAttribute="trailing" id="jWc-kS-QV4"/>
+                            <constraint firstItem="a9C-mm-ol3" firstAttribute="centerY" secondItem="1dm-pq-bmg" secondAttribute="centerY" constant="-50" id="jlk-hp-5GR"/>
                             <constraint firstItem="c5e-uv-ViX" firstAttribute="top" secondItem="9x7-we-eUy" secondAttribute="bottom" constant="6" id="yfX-7e-WP0"/>
                             <constraint firstItem="9x7-we-eUy" firstAttribute="top" secondItem="Bke-9T-FPh" secondAttribute="top" constant="8" id="zy2-t0-cyX"/>
                         </constraints>
@@ -113,6 +118,7 @@
                     <connections>
                         <outlet property="doneBtn" destination="Gqm-ts-TNV" id="YUG-MX-V1W"/>
                         <outlet property="myMenuView" destination="c5e-uv-ViX" id="oku-Px-TgE"/>
+                        <outlet property="spinner" destination="a9C-mm-ol3" id="jCh-Vz-A13"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aub-0B-TGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,7 +145,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainItem" translatesAutoresizingMaskIntoConstraints="NO" id="qNg-C7-eGp">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="qNg-C7-eGp">
                                                     <rect key="frame" x="15" y="11" width="345" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -242,7 +248,7 @@
     </scenes>
     <resources>
         <image name="check" width="24" height="24"/>
+        <image name="default_image" width="280" height="280"/>
         <image name="logo" width="666" height="322"/>
-        <image name="mainItem" width="700" height="420"/>
     </resources>
 </document>

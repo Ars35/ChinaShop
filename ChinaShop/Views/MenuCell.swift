@@ -24,7 +24,7 @@ class MenuCell: UICollectionViewCell {
             backgroundImage.image = image
         } else {
             if item.isDownloading == false {
-                backgroundImage.image = UIImage(named: "mainItem")
+                backgroundImage.image = UIImage(named: "default_image")
                 
                 DownloadService.instance.downloadPic(forMenuItem: item)
             }
