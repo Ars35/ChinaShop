@@ -11,9 +11,9 @@ import Foundation
 class SpecialService {
     
     static let instance = SpecialService()
-     var spesialList = [SpecialItemStruct]()
+    var spesialList = [SpecialItemStruct]()
     func getSpecialList(completion: @escaping (String) -> ()) {
-         let urlString : String = "https://sushiserver.herokuapp.com/specials"
+        let urlString : String = "https://sushiserver.herokuapp.com/specials"
         let url = URL(string : urlString)
         URLSession.shared.dataTask(with: url!){
             (data , responce , error)
@@ -32,13 +32,13 @@ class SpecialService {
                 print(errorMessage)
                 return
             }
-             print(json)
-            for special in (json?.specials.data)!{
+//            print(json)
+            for special in (json?.data.specials)!{
                 let spesialItem = SpecialItemStruct(_id: special._id, name: special.name, itemId: special.itemId, description: special.description, imageUrl: special.imageUrl!)
                 self.spesialList.append(spesialItem)
             }
-             completion("PARSING OK")
-        }.resume()
+            completion("PARSING OK")
+            }.resume()
         
     }
 }

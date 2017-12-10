@@ -19,6 +19,7 @@ struct MenuItemStruct : Decodable{
 //    "imageUrl": "http://res.cloudinary.com/hqwr3xrqp/image/upload/v1512196354/xatizexwgmauhuexz8jk.png"
 //    }
     //
+    
     var _id : String
     let name : String
     var itemId : String

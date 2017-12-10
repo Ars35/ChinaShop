@@ -29,15 +29,22 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //test purpose
         DownloadService.instance.delegate = self
         
-       //menuItemsArray = MainService.instance.getItems()
+       //загрузка меню
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {
                 self.menuItemsArray = MainService.instance.itemList
                 DispatchQueue.main.async {
                     self.myMenuView.reloadData()
                 }
-                
-                
+            }else {
+                print(error)
+            }
+        }
+        //загрузка спешиалс
+        SpecialService.instance.getSpecialList { (error) in
+            if error == "PARSING OK" {
+                let specialUrlImage = SpecialService.instance.spesialList[0].imageUrl
+                print("SPECIAL URL STRING: \(specialUrlImage)")
             }else {
                 print(error)
             }
@@ -87,11 +94,12 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 extension MenuController: DownloadServiceDelegate {
     func downloadCompleated(responce: DownloadResponce) {
-        print("This is Message from delegate.")
+//        print("This is Message from delegate.")
         if responce.errorString != nil {
             print("Error: \(responce.errorString!)")
         } else {
-            print("responce: \(responce.urlPatch!)")
+            
+//            print("responce: \(responce.urlPatch!)")
         }
         
         DispatchQueue.main.async {

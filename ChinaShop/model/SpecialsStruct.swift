@@ -6,6 +6,13 @@
 //  Copyright © 2017 Arseniy Arseniev. All rights reserved.
 //
 
+//{
+//    "_id": "5a2259391a9db30014f2b3fc",
+//    "name": "Happy Hour",
+//    "itemId": "SpxAg",
+//    "description": "MON-FRI 15.00-17.00",
+//    "imageUrl": "http://res.cloudinary.com/hqwr3xrqp/image/upload/v1512200505/pkxbflon53mq5na1c8pt.jpg"
+//}
 import Foundation
 struct SpecialItemStruct : Decodable{
     var _id :String
@@ -16,10 +23,10 @@ struct SpecialItemStruct : Decodable{
     
 }
 struct DataSpecialsStruct : Decodable{
-    var data = [SpecialItemStruct]()
+    var specials = [SpecialItemStruct]()
     
 }
 struct SpecialsStruct : Decodable{
-    var responce : String
-    var specials : DataSpecialsStruct
+    var status : String
+    var data : DataSpecialsStruct
 }
