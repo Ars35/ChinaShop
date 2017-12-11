@@ -8,9 +8,7 @@
 
 import UIKit
 
-class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewDataSource {
-    
-    
+class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewDataSource, BasketDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -29,10 +27,17 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         let cell : BacketViewCell = tableView.dequeueReusableCell(withIdentifier: "reuseTableCell", for: indexPath) as! BacketViewCell
         
         cell.cellInit(item: orderItemsArray[indexPath.row])
+        cell.delegate = self
         
         return cell
     }
     
+    func cellViewUpdate(cellId: MenuItem) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.totalLbl.text = self.calculateTotalToString()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
