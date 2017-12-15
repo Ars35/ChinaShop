@@ -16,7 +16,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     
     var orderItemsArray = [MenuItem]()
     
-    
+    var odrers = [ItemOrder]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return orderItemsArray.count
@@ -45,6 +45,9 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         print(orderItemsArray.count)
         // Do any additional setup after loading the view.
         totalLbl.text = calculateTotalToString()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
     }
     
     func calculateTotalToString() -> String {

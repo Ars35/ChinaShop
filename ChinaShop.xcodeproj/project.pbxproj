@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A633772E1FC30DE00083198A /* BacketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633772D1FC30DE00083198A /* BacketModel.swift */; };
+		A63720901FE402E600E1BFFF /* OrederStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A637208F1FE402E600E1BFFF /* OrederStruct.swift */; };
+		A63720921FE405FC00E1BFFF /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63720911FE405FC00E1BFFF /* OrderController.swift */; };
 		A6414D611FBC655F00FFD903 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6414D601FBC655F00FFD903 /* AppDelegate.swift */; };
 		A6414D631FBC655F00FFD903 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6414D621FBC655F00FFD903 /* ViewController.swift */; };
 		A6414D661FBC655F00FFD903 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6414D641FBC655F00FFD903 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		A633772D1FC30DE00083198A /* BacketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacketModel.swift; sourceTree = "<group>"; };
+		A637208F1FE402E600E1BFFF /* OrederStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrederStruct.swift; sourceTree = "<group>"; };
+		A63720911FE405FC00E1BFFF /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
 		A6414D5D1FBC655F00FFD903 /* ChinaShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinaShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6414D601FBC655F00FFD903 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6414D621FBC655F00FFD903 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			children = (
 				A6414D721FBC660700FFD903 /* MenuController.swift */,
 				A6CAD4111FC3071700230DB7 /* BacketMenuController.swift */,
+				A63720911FE405FC00E1BFFF /* OrderController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				A6E497271FDAD4C5000D7998 /* Responce.swift */,
 				A6CC91D01FDBD9EE00B1BC5D /* File.swift */,
 				A6E22CAB1FDC6DE700E0B191 /* SpecialsStruct.swift */,
+				A637208F1FE402E600E1BFFF /* OrederStruct.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -241,9 +247,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A63720921FE405FC00E1BFFF /* OrderController.swift in Sources */,
 				A6CAD4121FC3071700230DB7 /* BacketMenuController.swift in Sources */,
 				A6414D631FBC655F00FFD903 /* ViewController.swift in Sources */,
 				FFE5EC071FD6C3E800C86643 /* SpecialsService.swift in Sources */,
+				A63720901FE402E600E1BFFF /* OrederStruct.swift in Sources */,
 				FF8B4DED1FD374E40021821F /* MainService.swift in Sources */,
 				A6414D731FBC660700FFD903 /* MenuController.swift in Sources */,
 				A6CC91D11FDBD9EE00B1BC5D /* File.swift in Sources */,
