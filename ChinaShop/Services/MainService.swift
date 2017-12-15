@@ -80,7 +80,7 @@ class MainService {
         var tempArr = [ItemOrder]()
         if self.getBacket().count > 0 {
             for item in self.getBacket() {
-                let orderItem = ItemOrder(id: item.id, amount: item.count)
+                let orderItem = ItemOrder(id: item.itemId, amount: item.count)
                 tempArr.append(orderItem)
             }
         }
@@ -101,6 +101,8 @@ class MainService {
         request.httpMethod = "POST"
         var json : Data
         var errorMessage: String = ""
+        print("order: \(order)")
+        
         do{
             try json  =  JSONEncoder().encode(order)
             
