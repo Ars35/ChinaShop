@@ -15,7 +15,8 @@ let URL_ITEMS = "\(BASE_URL)items"
 let URL_ORDERS = "\(BASE_URL)orders"
 
 //Segues
-let TO_BASKET = "basketSegue"
+let TO_BASKET_SEGUAE = "basketSegue"
+let TO_ORDER_SEGUAE = "toOrderSeguae"
 
 
 /*
