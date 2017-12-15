@@ -97,10 +97,10 @@ class MainService {
         guard let url = URL(string : urlString) else {return}
         var request = URLRequest(url : url)
         request.httpMethod = "POST"
-       
+        var json : Order
         var errorMessage: String = ""
         do{
-          request.httpBody  =  try JSONEncoder().encode(order)
+            try json  =  JSONEncoder().encode(order)
             
         }
         catch let parseError as NSError {

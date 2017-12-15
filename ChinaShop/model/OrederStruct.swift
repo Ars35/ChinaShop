@@ -18,10 +18,10 @@ struct Order : Encodable {
     var phone : String
 }
 
-struct Data : Decodable {
+struct DataOrderResponce : Decodable {
     var orderid : String
 }
 struct ResponceOrder : Decodable {
     var status : String
-    var data:Data
+    var data: DataOrderResponce 
 }
