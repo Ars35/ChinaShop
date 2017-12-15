@@ -38,7 +38,19 @@ class MainService {
             }
 //            print(json)
             for item in (json?.data.items)! {
-                let tempMenuItem = MenuItem(id: item._id, name: item.name, itemId: item.itemId, description: item.description, price: Double(item.price)!, url: item.imageUrl!)
+                
+                var priceDouble: Double = 0.0
+                if Double(item.price) == nil {
+                    var tempString = item.price
+                    let otherRange = tempString.index(of: " ")!..<tempString.endIndex
+                    tempString.removeSubrange(otherRange)
+                    print(tempString)
+                    priceDouble = Double(tempString)!
+                    
+                } else {
+                    priceDouble = Double(item.price)!
+                }
+                let tempMenuItem = MenuItem(id: item._id, name: item.name, itemId: item.itemId, description: item.description, price: priceDouble, url: item.imageUrl!)
                 self.itemList.append(tempMenuItem)
             }
             completion("PARSING OK")

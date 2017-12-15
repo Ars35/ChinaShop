@@ -46,9 +46,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         totalLbl.text = calculateTotalToString()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
-    }
+
     
     func calculateTotalToString() -> String {
         var total = 0.0
