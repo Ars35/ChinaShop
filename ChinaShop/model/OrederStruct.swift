@@ -12,16 +12,36 @@ struct ItemOrder : Encodable{
   var amount : Int
 }
 struct Order : Encodable {
-    var orders = [ItemOrder]()
+    var order = [ItemOrder]()
     var name : String
-    var adress : String
+    var address : String
     var phone : String
 }
+//JSON засылать такой:
+//{
+//    "order": [
+            //    {
+            //    "id": "Z1KukSj",
+            //    "amount": 3
+            //    }
+            //    ],
+//    "name": "Alex",
+//    "address": "Minsk Nezaleznasti 1",
+//    "phone": "375 23 1234567"
+//}
 
 struct DataOrderResponce : Decodable {
-    var orderid : String
+    var orderId : String
 }
 struct ResponceOrder : Decodable {
     var status : String
-    var data: DataOrderResponce 
+    var data: DataOrderResponce?
 }
+//Ответ такой:
+//{
+//    "status": "success",
+//    "data": {
+//        "orderId": "Z1XlDkP"
+//    }
+//}
+

@@ -59,7 +59,16 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     @IBAction func orderBtnPressed(_ sender: Any) {
         print(MainService.instance.prepareForJson())
         if MainService.instance.prepareForJson().count > 0 {
-            performSegue(withIdentifier: TO_ORDER_SEGUAE, sender: nil)
+            
+            //Тестируем отправку тут
+            
+            MainService.instance.sendOrder(completion: { (error) in
+                
+            })
+            
+            //Тут не тестируем
+            
+//            performSegue(withIdentifier: TO_ORDER_SEGUAE, sender: nil)
         }
         
         

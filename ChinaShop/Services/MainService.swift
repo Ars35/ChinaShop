@@ -89,8 +89,10 @@ class MainService {
     }
     
     func sendOrder(completion: @escaping (String) -> ())  {
-        var data = self.prepareForJson()
-        var order = Order(orders: data, name: "ALEX",adress: "ADRESSSS" ,phone: "77852662554" )
+        let data = self.prepareForJson()
+
+        let order = Order(order: data, name: "IOSDevTeam", address: "Infinity Loop One", phone: "77852662554")
+        
         let urlString : String = "https://sushiserver.herokuapp.com/orders"
         
         
@@ -108,42 +110,35 @@ class MainService {
             print(errorMessage)
             return
         }
-            request.httpBody = json
-        URLSession.shared.dataTask(with: url) {
+
+        request.httpBody = json
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        URLSession.shared.dataTask(with: request) {
             (data , responce , error)
             in
             guard let data = data else {
                 completion("ERROR IN DATA")
                 return
             }
-            var json : ResponceMenu?
+            var json : ResponceOrder?
             var errorMessage: String = ""
             
             do {
-                json = try JSONDecoder().decode(ResponceMenu.self, from: data)
+                json = try JSONDecoder().decode(ResponceOrder.self, from: data)
                 
             } catch let parseError as NSError {
                 errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
                 print(errorMessage)
+                print(data.base64EncodedString())
+                
+                
                 return
             }
-            //            print(json)
-            for item in (json?.data.items)! {
-                
-                var priceDouble: Double = 0.0
-                if Double(item.price) == nil {
-                    var tempString = item.price
-                    let otherRange = tempString.index(of: " ")!..<tempString.endIndex
-                    tempString.removeSubrange(otherRange)
-                    print(tempString)
-                    priceDouble = Double(tempString)!
-                    
-                } else {
-                    priceDouble = Double(item.price)!
-                }
-                let tempMenuItem = MenuItem(id: item._id, name: item.name, itemId: item.itemId, description: item.description, price: priceDouble, url: item.imageUrl!)
-                self.itemList.append(tempMenuItem)
-            }
+            print(json)
+            
+            
             completion("PARSING OK")
             }.resume()
         
