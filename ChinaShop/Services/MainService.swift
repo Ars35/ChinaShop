@@ -89,14 +89,27 @@ class MainService {
     }
     
     func sendOrder(completion: @escaping (String) -> ())  {
-        
+        var data = self.prepareForJson()
+        var order = Order(orders: data, name: "ALEX",adress: "ADRESSSS" ,phone: "77852662554" )
         let urlString : String = "https://sushiserver.herokuapp.com/orders"
         
         
-        let url = URL(string : urlString)
+        guard let url = URL(string : urlString) else {return}
+        var request = URLRequest(url : url)
+        request.httpMethod = "POST"
+       
+        var errorMessage: String = ""
+        do{
+          request.httpBody  =  try JSONEncoder().encode(order)
+            
+        }
+        catch let parseError as NSError {
+            errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
+            print(errorMessage)
+            return
+        }
         
-        
-        URLSession.shared.dataTask(with: url!) {
+        URLSession.shared.dataTask(with: url) {
             (data , responce , error)
             in
             guard let data = data else {

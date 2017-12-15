@@ -20,7 +20,7 @@ class OrderController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    var orders = [ItemOrder]()
+  
     @IBAction func SendOrder(_ sender: Any) {
         guard let name : String = textName.text! else {
             return
@@ -32,12 +32,7 @@ class OrderController: UIViewController {
             return
         }
         
-        guard let url = URL(string : "https://sushiserver.herokuapp.com/orders") else{
-            return
-        }
-        var request = URLRequest(url : url)
-        request.httpMethod = "POST"
-//        guard let httpBody = 
+       
     }
     
     
