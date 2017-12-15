@@ -31,6 +31,21 @@ class OrderController: UIViewController {
         guard let phone : String = textPhone.text! else {
             return
         }
+       
+        MainService.instance.sendOrder(name: name, adress: adress, phone: phone) { (result) in
+            
+            if result == "PARSING OK" {
+                print("vse horosho")
+                //тут нужно сделать обнуление данных в карзине те установить у всех итемов количество в 0
+                //и перейти в начало
+            } else {
+                print("vse ploho")
+                //тут нужно вывести сообщение о том, что что то не так
+            }
+        }
+        
+        
+        
         
        
     }

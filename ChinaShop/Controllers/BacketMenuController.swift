@@ -60,15 +60,9 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         print(MainService.instance.prepareForJson())
         if MainService.instance.prepareForJson().count > 0 {
             
-            //Тестируем отправку тут
             
-            MainService.instance.sendOrder(completion: { (error) in
-                
-            })
             
-            //Тут не тестируем
-            
-//            performSegue(withIdentifier: TO_ORDER_SEGUAE, sender: nil)
+            performSegue(withIdentifier: TO_ORDER_SEGUAE, sender: nil)
         }
         
         

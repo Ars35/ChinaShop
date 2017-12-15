@@ -88,10 +88,10 @@ class MainService {
         return tempArr
     }
     
-    func sendOrder(completion: @escaping (String) -> ())  {
+    func sendOrder(name: String, adress: String, phone: String ,completion: @escaping (String) -> ())  {
         let data = self.prepareForJson()
 
-        let order = Order(order: data, name: "IOSDevTeam", address: "Infinity Loop One", phone: "77852662554")
+        let order = Order(order: data, name: name, address: adress, phone: phone)
         
         let urlString : String = "https://sushiserver.herokuapp.com/orders"
         
