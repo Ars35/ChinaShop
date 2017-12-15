@@ -97,7 +97,7 @@ class MainService {
         guard let url = URL(string : urlString) else {return}
         var request = URLRequest(url : url)
         request.httpMethod = "POST"
-        var json : Order
+        var json : Data
         var errorMessage: String = ""
         do{
             try json  =  JSONEncoder().encode(order)
@@ -108,7 +108,7 @@ class MainService {
             print(errorMessage)
             return
         }
-        
+            request.httpBody = json
         URLSession.shared.dataTask(with: url) {
             (data , responce , error)
             in
