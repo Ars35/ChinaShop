@@ -13,6 +13,7 @@ import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var spesialImage: UIImageView!
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var myMenuView: UICollectionView!
     
@@ -20,7 +21,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var menuItemsArray = [MenuItem]()
     
     var backetModel = BacketModel()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,12 +32,13 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //test purpose
         DownloadService.instance.delegate = self
-        
+        spesialImage.image = UIImage()
        //загрузка меню
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {
                 self.menuItemsArray = MainService.instance.itemList
                 self.getSpecialList()
+                
                 DispatchQueue.main.async {
                     self.myMenuView.reloadData()
                     
@@ -44,7 +46,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }else {
                 print(error)
             }
+            
         }
+        
         
         
         
@@ -66,6 +70,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print(error)
             }
         }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

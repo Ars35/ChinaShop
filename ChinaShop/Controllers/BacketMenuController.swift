@@ -15,7 +15,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     @IBOutlet weak var totalLbl: UILabel!
     
     var orderItemsArray = [MenuItem]()
-    
+    var spesialList = [SpecialItemStruct]()
     var odrers = [ItemOrder]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -45,6 +45,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         print(orderItemsArray.count)
         // Do any additional setup after loading the view.
         totalLbl.text = calculateTotalToString()
+        
     }
 
     
