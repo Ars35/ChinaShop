@@ -66,6 +66,14 @@ class MainService {
         }
     }
     
+    func clearDataAfterSendAndReturnToTheMainController(){
+        for item in self.getBacket(){
+            item.count = 0
+        }
+        
+        
+    }
+    
     func getBacket() -> [MenuItem] {
         var backetArray = [MenuItem]()
         for item in itemList {

@@ -36,8 +36,15 @@ class OrderController: UIViewController {
             
             if result == "PARSING OK" {
                 print("vse horosho")
+               
                 //тут нужно сделать обнуление данных в карзине те установить у всех итемов количество в 0
                 //и перейти в начало
+               MainService.instance.clearDataAfterSendAndReturnToTheMainController()
+                    DispatchQueue.main.async {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+               
+                
             } else {
                 print("vse ploho")
                 //тут нужно вывести сообщение о том, что что то не так

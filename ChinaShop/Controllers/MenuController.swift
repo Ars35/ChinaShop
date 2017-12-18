@@ -32,7 +32,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //test purpose
         DownloadService.instance.delegate = self
-        spesialImage.image = UIImage()
+       
        //загрузка меню
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {
@@ -65,6 +65,10 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
                 
                 let specialUrlImage = SpecialService.instance.spesialList[0].imageUrl
+                
+                DispatchQueue.main.async {
+                    self.spesialImage.image = UIImage(contentsOfFile: specialUrlImage!)
+                }
                 print("SPECIAL URL STRING: \(specialUrlImage)")
             }else {
                 print(error)
