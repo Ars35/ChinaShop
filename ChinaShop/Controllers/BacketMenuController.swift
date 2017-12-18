@@ -34,6 +34,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     
     func cellViewUpdate(cellId: MenuItem) {
         DispatchQueue.main.async {
+            self.orderItemsArray = MainService.instance.getBacket()
             self.tableView.reloadData()
             self.totalLbl.text = self.calculateTotalToString()
         }

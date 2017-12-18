@@ -26,11 +26,14 @@ class BacketViewCell: UITableViewCell {
     @IBAction func countButtonPressed(_ sender: UIButton) {
         switch sender.currentTitle! {
         case "-":
+            print("Minus BTn Pressed")
             if menuItem!.count > 1 {
-                print("Minus BTn Pressed")
                 menuItem!.count -= 1
-                delegate?.cellViewUpdate(cellId: menuItem!)
+            } else {
+                menuItem!.count = 0
+                
             }
+            delegate?.cellViewUpdate(cellId: menuItem!)
         case "+":
             print("Plus Btn Pressed")
             menuItem!.count += 1
