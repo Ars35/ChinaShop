@@ -66,9 +66,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 let specialUrlImage = SpecialService.instance.spesialList[0].imageUrl
                 
-                DispatchQueue.main.async {
-                    self.spesialImage.image = UIImage(contentsOfFile: specialUrlImage!)
-                }
+                self.load_image(urlString: specialUrlImage!)
                 print("SPECIAL URL STRING: \(specialUrlImage)")
             }else {
                 print(error)
@@ -113,6 +111,21 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cellDemension = (collectionView.bounds.width - spaceBetweenCells) / numberOfColumns
         return CGSize(width: cellDemension, height: cellDemension)
 
+    }
+    
+    
+    func load_image(urlString:String)
+    {
+        
+        let imgURL: URL = URL(string: urlString)!
+        let request: URLRequest = URLRequest(url: imgURL)
+        NSURLConnection.sendAsynchronousRequest(
+            request, queue: OperationQueue.main,
+            completionHandler: {(response: URLResponse!,data: Data!,error: Error!) -> Void in
+                if error == nil {
+                    self.spesialImage.image = UIImage(data: data)
+                }
+        })
     }
 }
 
