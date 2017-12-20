@@ -10,6 +10,7 @@ import UIKit
 
 class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewDataSource, BasketDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var totalLbl: UILabel!
@@ -17,6 +18,12 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     var orderItemsArray = [MenuItem]()
     var spesialList = [SpecialItemStruct]()
     var odrers = [ItemOrder]()
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+    MainService.instance.clearDataAfterSendAndReturnToTheMainController()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return orderItemsArray.count
