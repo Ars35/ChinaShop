@@ -14,9 +14,12 @@ class MenuCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: PriceLable!
     
+    var menuItem: MenuItem?
+    
     @IBAction func cellBtnPressed(_ sender: Any) {
         print("TestBtnPresed")
         self.dim()
+        MainService.instance.addToBacket(forName: (menuItem?.name)!)
     }
     
     func dim() {
@@ -30,6 +33,7 @@ class MenuCell: UICollectionViewCell {
     }
     
     func cellInit(item: MenuItem) {
+        self.menuItem = item
         nameLabel.text = item.name
         priceLabel.setText(price: item.price)
         

@@ -48,11 +48,6 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             
         }
-        
-        
-        
-        
-
     }
     
     private func getSpecialList() {
@@ -78,7 +73,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item : MenuItem = menuItemsArray[indexPath.item]
         //dobavit v service
-        MainService.instance.addToBacket(forName: item.name)
+        //MainService.instance.addToBacket(forName: item.name)
         
         print("Added to backet \(item.name)")
         
