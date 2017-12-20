@@ -14,6 +14,21 @@ class MenuCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: PriceLable!
     
+    @IBAction func cellBtnPressed(_ sender: Any) {
+        print("TestBtnPresed")
+        self.dim()
+    }
+    
+    func dim() {
+        UIView.animate(withDuration: 0.15, animations: {
+            self.alpha = 0.75
+        }) { (finished) in
+            UIView.animate(withDuration: 0.15, animations: {
+                self.alpha = 1.0
+            })
+        }
+    }
+    
     func cellInit(item: MenuItem) {
         nameLabel.text = item.name
         priceLabel.setText(price: item.price)

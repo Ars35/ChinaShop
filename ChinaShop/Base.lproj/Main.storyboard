@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ge2-77-ADH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ge2-77-ADH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -46,13 +46,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="166" height="180"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D9-bu-4VY">
-                                                    <rect key="frame" x="16" y="141" width="142" height="21"/>
+                                                    <rect key="frame" x="16" y="149" width="134" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KD-C5-H3U" customClass="PriceLable" customModule="ChinaShop" customModuleProvider="target">
-                                                    <rect key="frame" x="98" y="100.5" width="60" height="30.5"/>
+                                                    <rect key="frame" x="90" y="108.5" width="60" height="30.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="CSu-0u-l7t"/>
                                                     </constraints>
@@ -60,16 +60,27 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isd-6b-Ncd">
+                                                    <rect key="frame" x="5" y="5" width="156" height="170"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="cellBtnPressed:" destination="rNZ-Bf-126" eventType="touchUpInside" id="HFF-OA-GCT"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="isd-6b-Ncd" firstAttribute="leading" secondItem="rNZ-Bf-126" secondAttribute="leading" constant="5" id="3Kd-Kq-SEe"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="5D9-bu-4VY" secondAttribute="bottom" constant="10" id="97m-Rk-iqs"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="5D9-bu-4VY" secondAttribute="trailing" id="9UZ-Ll-vgu"/>
+                                            <constraint firstAttribute="trailing" secondItem="isd-6b-Ncd" secondAttribute="trailing" constant="5" id="LeM-Vy-fEB"/>
                                             <constraint firstItem="gb1-3e-jU3" firstAttribute="leading" secondItem="rNZ-Bf-126" secondAttribute="leading" id="UBh-ix-aa3"/>
                                             <constraint firstItem="3KD-C5-H3U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rNZ-Bf-126" secondAttribute="leading" symbolic="YES" id="XMv-nA-bKY"/>
                                             <constraint firstAttribute="bottom" secondItem="gb1-3e-jU3" secondAttribute="bottom" id="Y1R-FG-JYt"/>
                                             <constraint firstItem="3KD-C5-H3U" firstAttribute="height" secondItem="gb1-3e-jU3" secondAttribute="height" multiplier="1:5.9" id="aKH-NO-UmD"/>
                                             <constraint firstAttribute="trailing" secondItem="gb1-3e-jU3" secondAttribute="trailing" id="hIr-oW-nQU"/>
+                                            <constraint firstItem="isd-6b-Ncd" firstAttribute="top" secondItem="rNZ-Bf-126" secondAttribute="top" constant="5" id="i6F-G7-K6H"/>
+                                            <constraint firstAttribute="bottom" secondItem="isd-6b-Ncd" secondAttribute="bottom" constant="5" id="m1v-Qt-ObH"/>
                                             <constraint firstItem="gb1-3e-jU3" firstAttribute="top" secondItem="rNZ-Bf-126" secondAttribute="top" id="mWd-mt-zqR"/>
                                             <constraint firstItem="5D9-bu-4VY" firstAttribute="leading" secondItem="rNZ-Bf-126" secondAttribute="leading" constant="16" id="qTx-ob-F9E"/>
                                             <constraint firstItem="5D9-bu-4VY" firstAttribute="top" secondItem="3KD-C5-H3U" secondAttribute="bottom" constant="10" id="ums-fQ-Ns2"/>
