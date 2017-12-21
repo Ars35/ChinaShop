@@ -10,12 +10,14 @@ import UIKit
 
 class OrderController: UIViewController {
 
+    @IBOutlet weak var finalImage: UIImageView!
     @IBOutlet weak var textName: UITextField!
     @IBOutlet weak var textAdress: UITextField!
     
     @IBOutlet weak var textPhone: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        finalImage.alpha = 0.0
         textName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
         textAdress.attributedPlaceholder = NSAttributedString(string: "Phone", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
         textPhone.attributedPlaceholder = NSAttributedString(string: "Street, Number, Appartment", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
@@ -42,40 +44,29 @@ class OrderController: UIViewController {
                
                 //тут нужно сделать обнуление данных в карзине те установить у всех итемов количество в 0
                 //и перейти в начало
-               MainService.instance.clearDataAfterSendAndReturnToTheMainController()
-                    DispatchQueue.main.async {
-                    self.navigationController?.popToRootViewController(animated: true)
+                DispatchQueue.main.async {
+                    self.finalImage.alpha = 0.0
+                    UIView.animate(withDuration: 2, animations: {
+                        
+                        self.finalImage.alpha = 1.0
+                    }, completion: { (finished) in
+                        let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
+                        DispatchQueue.main.asyncAfter(deadline: when) {
+                            DispatchQueue.main.async {
+                                MainService.instance.clearDataAfterSendAndReturnToTheMainController()
+                                self.navigationController?.popToRootViewController(animated: true)
+                                
+                            }
+                        }
+                    })
+                    
                 }
-               
                 
             } else {
                 print("vse ploho")
                 //тут нужно вывести сообщение о том, что что то не так
             }
         }
-        
-        
-        
-        
-       
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

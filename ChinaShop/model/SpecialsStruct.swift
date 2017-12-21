@@ -15,10 +15,10 @@
 //}
 import Foundation
 struct SpecialItemStruct : Decodable{
-    var _id :String
-    var name : String
-    var itemId : String
-    var description : String
+    var _id :String?
+    var name : String?
+    var itemId : String?
+    var description : String?
     var imageUrl: String?
     
 }
