@@ -15,6 +15,7 @@ protocol BasketDelegate {
 class BacketViewCell: UITableViewCell {
 
     
+
     @IBOutlet weak var backetName: UILabel!
     @IBOutlet weak var backetPrice: PriceLable!
     @IBOutlet weak var backetImage: UIImageView!

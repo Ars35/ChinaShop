@@ -12,8 +12,9 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     
     
     @IBOutlet weak var orderButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     @IBOutlet weak var totalLbl: UILabel!
     
     var orderItemsArray = [MenuItem]()
