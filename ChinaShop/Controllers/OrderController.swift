@@ -26,7 +26,7 @@ class OrderController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         finalImage.alpha = 0.0
-        
+         
         finalImage.layer.cornerRadius = finalImage.layer.frame.width / 2
         finalImage.layer.masksToBounds = true
         textName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
