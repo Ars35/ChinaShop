@@ -11,6 +11,7 @@ import UIKit
 class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewDataSource, BasketDelegate {
     
     
+    @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var totalLbl: UILabel!
@@ -18,6 +19,12 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     var orderItemsArray = [MenuItem]()
     var spesialList = [SpecialItemStruct]()
     var odrers = [ItemOrder]()
+    func buttonsParametrs() {
+    
+    orderButton.layer.cornerRadius = 10
+    orderButton.clipsToBounds = true
+    
+    }
     
     @IBAction func cancelPressed(_ sender: Any) {
     MainService.instance.clearDataAfterSendAndReturnToTheMainController()
@@ -53,6 +60,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         print(orderItemsArray.count)
         // Do any additional setup after loading the view.
         totalLbl.text = calculateTotalToString()
+       buttonsParametrs()
         
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A62E73F01FED73830098611B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62E73EF1FED73830098611B /* UIViewExtension.swift */; };
+		A62E73F21FED79000098611B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62E73F11FED79000098611B /* UIButtonExtension.swift */; };
 		A633772E1FC30DE00083198A /* BacketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633772D1FC30DE00083198A /* BacketModel.swift */; };
 		A63720901FE402E600E1BFFF /* OrederStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A637208F1FE402E600E1BFFF /* OrederStruct.swift */; };
 		A63720921FE405FC00E1BFFF /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63720911FE405FC00E1BFFF /* OrderController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A62E73EF1FED73830098611B /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		A62E73F11FED79000098611B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A633772D1FC30DE00083198A /* BacketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacketModel.swift; sourceTree = "<group>"; };
 		A637208F1FE402E600E1BFFF /* OrederStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrederStruct.swift; sourceTree = "<group>"; };
 		A63720911FE405FC00E1BFFF /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				A6CC91D01FDBD9EE00B1BC5D /* File.swift */,
 				A6E22CAB1FDC6DE700E0B191 /* SpecialsStruct.swift */,
 				A637208F1FE402E600E1BFFF /* OrederStruct.swift */,
+				A62E73EF1FED73830098611B /* UIViewExtension.swift */,
+				A62E73F11FED79000098611B /* UIButtonExtension.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 				A6CC91D11FDBD9EE00B1BC5D /* File.swift in Sources */,
 				A6E22CAC1FDC6DE700E0B191 /* SpecialsStruct.swift in Sources */,
 				A6E497281FDAD4C5000D7998 /* Responce.swift in Sources */,
+				A62E73F01FED73830098611B /* UIViewExtension.swift in Sources */,
+				A62E73F21FED79000098611B /* UIButtonExtension.swift in Sources */,
 				A6414D7E1FBC697A00FFD903 /* MenuModel.swift in Sources */,
 				A6414D801FBC6A3600FFD903 /* MenuItem.swift in Sources */,
 				FF2455AE1FCC3F55005BBF45 /* DownloadService.swift in Sources */,
