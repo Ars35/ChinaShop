@@ -10,6 +10,7 @@ import UIKit
 
 class OrderController: UIViewController {
 
+    @IBOutlet weak var finalBacgroundView: UIView!
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var finalImage: UIImageView!
     @IBOutlet weak var textName: UITextField!
@@ -26,7 +27,8 @@ class OrderController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         finalImage.alpha = 0.0
-         
+        finalBacgroundView.alpha = 0.0
+     
         finalImage.layer.cornerRadius = finalImage.layer.frame.width / 2
         finalImage.layer.masksToBounds = true
         textName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
@@ -57,9 +59,11 @@ class OrderController: UIViewController {
                 //и перейти в начало
                 DispatchQueue.main.async {
                     self.finalImage.alpha = 0.0
+                    self.finalBacgroundView.isHidden = false
                     UIView.animate(withDuration: 2, animations: {
                         
                         self.finalImage.alpha = 1.0
+                        self.finalBacgroundView.alpha = 1.0
                     }, completion: { (finished) in
                         let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
                         DispatchQueue.main.asyncAfter(deadline: when) {
