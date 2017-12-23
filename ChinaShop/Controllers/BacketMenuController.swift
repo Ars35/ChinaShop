@@ -22,8 +22,10 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     var odrers = [ItemOrder]()
     func buttonsParametrs() {
     
-    orderButton.layer.cornerRadius = 10
-    orderButton.clipsToBounds = true
+        orderButton.layer.cornerRadius = 10
+        orderButton.clipsToBounds = true
+        orderButton.backgroundColor = #colorLiteral(red: 0.7931956053, green: 0.115777202, blue: 0.2298518419, alpha: 1)
+        
     
     }
     

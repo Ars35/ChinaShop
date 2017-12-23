@@ -22,6 +22,7 @@ class OrderController: UIViewController {
         
         orderButton.layer.cornerRadius = 10
         orderButton.clipsToBounds = true
+        orderButton.backgroundColor = #colorLiteral(red: 0.737254902, green: 0, blue: 0.1764705882, alpha: 1)
         
     }
     override func viewDidLoad() {
