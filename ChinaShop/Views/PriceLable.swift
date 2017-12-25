@@ -13,7 +13,7 @@ class PriceLable: UILabel {
     let currency = "RMB"
     
     func setText(price: Double) {
-        self.text = " \(price) \(currency)  "
+        self.text = " \(Int(price)) \(currency)  "
     }
     
     override func awakeFromNib() {

@@ -8,6 +8,24 @@
 
 import UIKit
 
+extension NSMutableAttributedString {
+    @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont.systemFont(ofSize: 27, weight: UIFont.Weight.bold)]
+        
+        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+        append(boldString)
+        
+        return self
+    }
+    
+    @discardableResult func normal(_ text: String) -> NSMutableAttributedString {
+        let normal = NSAttributedString(string: text)
+        append(normal)
+        
+        return self
+    }
+}
+
 class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewDataSource, BasketDelegate {
     
     
@@ -53,7 +71,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         DispatchQueue.main.async {
             self.orderItemsArray = MainService.instance.getBacket()
             self.tableView.reloadData()
-            self.totalLbl.text = self.calculateTotalToString()
+            self.totalLbl.attributedText = self.calculateTotalToString()
         }
     }
     
@@ -62,18 +80,24 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
         orderItemsArray = MainService.instance.getBacket()
         print(orderItemsArray.count)
         // Do any additional setup after loading the view.
-        totalLbl.text = calculateTotalToString()
+        totalLbl.attributedText = calculateTotalToString()
        buttonsParametrs()
         
     }
 
     
-    func calculateTotalToString() -> String {
+    func calculateTotalToString() -> NSMutableAttributedString {
         var total = 0.0
         for item in orderItemsArray {
             total += Double(item.count) * item.price
         }
-        return "\(total) RMB"
+        
+        let formattedString = NSMutableAttributedString()
+        formattedString
+            .bold("\(Int(total))")
+            .normal(" RMB")
+        
+        return formattedString
     }
     
     @IBAction func orderBtnPressed(_ sender: Any) {

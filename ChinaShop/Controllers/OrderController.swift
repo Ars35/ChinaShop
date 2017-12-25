@@ -10,12 +10,9 @@ import UIKit
 
 class OrderController: UIViewController {
 
-    @IBOutlet weak var finalBacgroundView: UIView!
     @IBOutlet weak var orderButton: UIButton!
-    @IBOutlet weak var finalImage: UIImageView!
     @IBOutlet weak var textName: UITextField!
     @IBOutlet weak var textAdress: UITextField!
-    
     @IBOutlet weak var textPhone: UITextField!
     
     func buttonsParametrs() {
@@ -27,19 +24,18 @@ class OrderController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        finalImage.alpha = 0.0
-        finalBacgroundView.alpha = 0.0
         
-        
-     
-        finalImage.layer.cornerRadius = finalImage.frame.height / 2
-        
-        finalImage.clipsToBounds = true
         textName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
         textAdress.attributedPlaceholder = NSAttributedString(string: "Phone", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
         textPhone.attributedPlaceholder = NSAttributedString(string: "Street, Number, Appartment", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
             buttonsParametrs()
-        // Do any additional setup after loading the view.
+
+        NotificationCenter.default.addObserver(self, selector: #selector(OrderController.userOrderDone(_:)), name: NOTIF_ORDER_DONE, object: nil)
+    }
+    
+    @objc func userOrderDone(_ notif: Notification) {
+        MainService.instance.clearDataAfterSendAndReturnToTheMainController()
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
   
@@ -58,27 +54,10 @@ class OrderController: UIViewController {
             
             if result == "PARSING OK" {
                 print("vse horosho")
-               
-                //тут нужно сделать обнуление данных в карзине те установить у всех итемов количество в 0
-                //и перейти в начало
                 DispatchQueue.main.async {
-                    self.finalImage.alpha = 0.0
-                    self.finalBacgroundView.isHidden = false
-                    UIView.animate(withDuration: 2, animations: {
-                        
-                        self.finalImage.alpha = 1.0
-                        self.finalBacgroundView.alpha = 1.0
-                    }, completion: { (finished) in
-                        let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
-                        DispatchQueue.main.asyncAfter(deadline: when) {
-                            DispatchQueue.main.async {
-                                MainService.instance.clearDataAfterSendAndReturnToTheMainController()
-                                self.navigationController?.popToRootViewController(animated: true)
-                                
-                            }
-                        }
-                    })
-                    
+                    let doneVC = DoneVC()
+                    doneVC.modalPresentationStyle = .custom
+                    self.present(doneVC, animated: true, completion: nil)
                 }
                 
             } else {

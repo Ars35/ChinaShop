@@ -19,6 +19,9 @@ let TO_BASKET_SEGUAE = "basketSegue"
 let TO_ORDER_SEGUAE = "toOrderSeguae"
 
 
+//Notification Constants
+let NOTIF_ORDER_DONE = Notification.Name("notifUserDataChanged")
+
 /*
  https://sushiserver.herokuapp.com/
  
