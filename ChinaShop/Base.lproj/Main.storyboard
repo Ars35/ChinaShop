@@ -115,15 +115,61 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="a9C-mm-ol3">
                                 <rect key="frame" x="169" y="265" width="37" height="37"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DM-II-yHz">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVg-if-EiG">
+                                        <rect key="frame" x="255" y="0.0" width="70" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="tNL-mm-sha"/>
+                                        </constraints>
+                                        <state key="normal" title="Undo">
+                                            <color key="titleColor" red="0.65098039215686276" green="0.50980392156862742" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="undoBtnPressed:" destination="rB7-4A-ahg" eventType="touchUpInside" id="eeN-cy-0Sg"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item added to cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3J2-Zw-DZ6">
+                                        <rect key="frame" x="50" y="15" width="142" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYD-ul-Ku4">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="50"/>
+                                        <connections>
+                                            <action selector="toCartBtnPressed:" destination="rB7-4A-ahg" eventType="touchUpInside" id="0dx-XA-tVU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nVg-if-EiG" secondAttribute="trailing" constant="50" id="6GT-OC-bxY"/>
+                                    <constraint firstItem="3J2-Zw-DZ6" firstAttribute="centerY" secondItem="7DM-II-yHz" secondAttribute="centerY" id="72e-eM-MVB"/>
+                                    <constraint firstAttribute="height" constant="50" id="7mT-tP-9TD"/>
+                                    <constraint firstAttribute="bottom" secondItem="nVg-if-EiG" secondAttribute="bottom" id="8MI-Sm-Sqv"/>
+                                    <constraint firstItem="nVg-if-EiG" firstAttribute="leading" secondItem="TYD-ul-Ku4" secondAttribute="trailing" constant="20" id="J7y-m1-hIW"/>
+                                    <constraint firstItem="TYD-ul-Ku4" firstAttribute="top" secondItem="7DM-II-yHz" secondAttribute="top" id="Mfa-Uv-vuz"/>
+                                    <constraint firstItem="nVg-if-EiG" firstAttribute="centerY" secondItem="7DM-II-yHz" secondAttribute="centerY" id="Oph-Un-l8F"/>
+                                    <constraint firstItem="nVg-if-EiG" firstAttribute="top" secondItem="7DM-II-yHz" secondAttribute="top" id="hoF-Dr-OAz"/>
+                                    <constraint firstItem="TYD-ul-Ku4" firstAttribute="leading" secondItem="7DM-II-yHz" secondAttribute="leading" id="iru-uF-vmE"/>
+                                    <constraint firstAttribute="bottom" secondItem="TYD-ul-Ku4" secondAttribute="bottom" id="kfJ-Oa-nYQ"/>
+                                    <constraint firstItem="3J2-Zw-DZ6" firstAttribute="leading" secondItem="7DM-II-yHz" secondAttribute="leading" constant="50" id="xeZ-gS-rKJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="9x7-we-eUy" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" constant="16" id="FsP-9w-r2Q"/>
+                            <constraint firstItem="Bke-9T-FPh" firstAttribute="trailing" secondItem="7DM-II-yHz" secondAttribute="trailing" id="Fz3-RF-dJp"/>
                             <constraint firstItem="a9C-mm-ol3" firstAttribute="centerX" secondItem="1dm-pq-bmg" secondAttribute="centerX" id="RPp-S0-Yc5"/>
                             <constraint firstAttribute="trailing" secondItem="c5e-uv-ViX" secondAttribute="trailing" constant="16" id="VOL-oH-KyK"/>
+                            <constraint firstItem="7DM-II-yHz" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" id="WXb-bZ-m2X"/>
                             <constraint firstAttribute="bottom" secondItem="c5e-uv-ViX" secondAttribute="bottom" constant="5" id="a1H-fi-DPL"/>
                             <constraint firstItem="c5e-uv-ViX" firstAttribute="leading" secondItem="Bke-9T-FPh" secondAttribute="leading" constant="16" id="aZx-5L-UTR"/>
                             <constraint firstItem="9x7-we-eUy" firstAttribute="height" secondItem="Bke-9T-FPh" secondAttribute="height" multiplier="1:3.5" id="c7d-rE-AJL"/>
+                            <constraint firstItem="Bke-9T-FPh" firstAttribute="bottom" secondItem="7DM-II-yHz" secondAttribute="bottom" id="cle-bF-ULc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9x7-we-eUy" secondAttribute="trailing" id="jWc-kS-QV4"/>
                             <constraint firstItem="a9C-mm-ol3" firstAttribute="centerY" secondItem="1dm-pq-bmg" secondAttribute="centerY" constant="-50" id="jlk-hp-5GR"/>
                             <constraint firstItem="c5e-uv-ViX" firstAttribute="top" secondItem="9x7-we-eUy" secondAttribute="bottom" constant="6" id="yfX-7e-WP0"/>
@@ -135,7 +181,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Anna Sushi" style="done" id="U6t-0b-bHm"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="cort" id="Gqm-ts-TNV">
                             <connections>
-                                <segue destination="GKY-jI-a9s" kind="show" identifier="basketSegue" id="vMa-on-oUc"/>
+                                <action selector="toCartBtnPressed:" destination="rB7-4A-ahg" id="shM-Cn-GmM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -143,13 +189,15 @@
                         <outlet property="basketBtn" destination="Gqm-ts-TNV" id="Kwi-Ra-KQS"/>
                         <outlet property="doneBtn" destination="Gqm-ts-TNV" id="YUG-MX-V1W"/>
                         <outlet property="myMenuView" destination="c5e-uv-ViX" id="oku-Px-TgE"/>
+                        <outlet property="notificationView" destination="7DM-II-yHz" id="YuW-Yg-Ldg"/>
                         <outlet property="spesialImage" destination="9x7-we-eUy" id="o5z-Ll-QPC"/>
                         <outlet property="spinner" destination="a9C-mm-ol3" id="jCh-Vz-A13"/>
+                        <segue destination="GKY-jI-a9s" kind="show" identifier="basketSegue" id="HEe-pC-Xsz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aub-0B-TGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064.375" y="203.75"/>
+            <point key="canvasLocation" x="2063.1999999999998" y="203.74812593703149"/>
         </scene>
         <!--Backet-->
         <scene sceneID="qRP-O9-T1d">

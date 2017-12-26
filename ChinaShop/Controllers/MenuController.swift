@@ -13,6 +13,26 @@ import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        closeNotification()
+    }
+    
+    @IBAction func toCartBtnPressed(_ sender: Any) {
+        closeNotification()
+        if MainService.instance.getBacket().count > 0 {
+            performSegue(withIdentifier: TO_BASKET_SEGUAE, sender: nil)
+        }
+        
+    }
+    
+    @IBAction func undoBtnPressed(_ sender: Any) {
+        MainService.instance.removeLast()
+        closeNotification()
+    }
+    
+    
+    @IBOutlet weak var notificationView: UIView!
     @IBOutlet weak var basketBtn: UIBarButtonItem!
     @IBOutlet weak var spesialImage: UIImageView!
     @IBOutlet weak var doneBtn: UIBarButtonItem!
@@ -25,12 +45,23 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
    
     
     @objc func addToCartResponder(_ notif: Notification) {
+        self.showNotification()
         if MainService.instance.getBacket().count > 0 {
             basketBtn.image = UIImage(named: "check")// полная
         } else {
-            basketBtn.image = UIImage(named: "cort")// пустая
+            basketBtn.image = UIImage(named: "check")// пустая
 
         }
+    }
+    
+    private func closeNotification() {
+        notificationView.isHidden = true
+    }
+    private func showNotification() {
+        notificationView.isHidden = false
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+//            self.closeNotification()
+//        })
     }
     
     override func viewDidLoad() {
@@ -42,6 +73,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         myMenuView.dataSource = self
         spinner.isHidden = false
         spinner.startAnimating()
+        notificationView.isHidden = true
         
         //test purpose
         DownloadService.instance.delegate = self

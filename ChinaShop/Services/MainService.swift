@@ -13,6 +13,7 @@ class MainService {
     static let instance = MainService()
     
     var itemList = [MenuItem]()
+    var lastItem: MenuItem?
     
     
     func getItems(completion: @escaping (String) -> ())  {
@@ -61,6 +62,7 @@ class MainService {
     func addToBacket(forName itemName: String) {
         for item in itemList {
             if item.name == itemName {
+                self.lastItem = item
                 item.count += 1
             }
         }
@@ -82,6 +84,10 @@ class MainService {
             }
         }
         return backetArray
+    }
+    
+    func removeLast() {
+        self.lastItem?.count -= 1
     }
     
     func prepareForJson() -> [ItemOrder] {
