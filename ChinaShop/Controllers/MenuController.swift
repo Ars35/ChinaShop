@@ -33,6 +33,14 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //test purpose
         DownloadService.instance.delegate = self
        
+        //barbutton start
+        let donVTemp = PriceLable()
+        donVTemp.sizeToFit()
+        donVTemp.setText(price: 0)
+        let leftButton = UIBarButtonItem(customView: donVTemp)
+        self.navigationItem.leftBarButtonItem = leftButton
+        //barbutton end
+        
        //загрузка меню
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {

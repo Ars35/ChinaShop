@@ -10,7 +10,7 @@ import UIKit
 
 class PriceLable: UILabel {
     
-    let currency = "RMB"
+    let currency = "Anna Sushi"
     
     func setText(price: Double) {
         self.text = " \(Int(price)) \(currency)  "
