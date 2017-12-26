@@ -26,7 +26,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @objc func addToCartResponder(_ notif: Notification) {
         if MainService.instance.getBacket().count > 0 {
-            basketBtn.image = UIImage(named: "addshoppingcart")// полная
+            basketBtn.image = UIImage(named: "check")// полная
         } else {
             basketBtn.image = UIImage(named: "cort")// пустая
 
