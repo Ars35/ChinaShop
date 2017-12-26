@@ -34,9 +34,11 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         DownloadService.instance.delegate = self
        
         //barbutton start
-        let donVTemp = PriceLable()
+        let donVTemp = UILabel()
         donVTemp.sizeToFit()
-        donVTemp.setText(price: 0)
+        donVTemp.text = "Anna Sushi"
+        donVTemp.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
         let leftButton = UIBarButtonItem(customView: donVTemp)
         self.navigationItem.leftBarButtonItem = leftButton
         //barbutton end
