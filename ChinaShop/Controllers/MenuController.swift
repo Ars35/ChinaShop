@@ -45,8 +45,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
    
     
     @objc func addToCartResponder(_ notif: Notification) {
-        self.showNotification()
+        
         if MainService.instance.getBacket().count > 0 {
+            self.showNotification()
             basketBtn.image = UIImage(named: "check")// полная
         } else {
             basketBtn.image = UIImage(named: "check")// пустая
@@ -59,9 +60,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     private func showNotification() {
         notificationView.isHidden = false
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-//            self.closeNotification()
-//        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+            self.closeNotification()
+        })
     }
     
     override func viewDidLoad() {
