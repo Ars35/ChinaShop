@@ -49,6 +49,7 @@ class BacketMenuController: UIViewController , UITableViewDelegate, UITableViewD
     
     @IBAction func cancelPressed(_ sender: Any) {
     MainService.instance.clearDataAfterSendAndReturnToTheMainController()
+        NotificationCenter.default.post(name: NOTIF_ADD_TO_CART, object: nil)
         self.navigationController?.popToRootViewController(animated: true)
     }
     

@@ -13,6 +13,7 @@ import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var basketBtn: UIBarButtonItem!
     @IBOutlet weak var spesialImage: UIImageView!
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var myMenuView: UICollectionView!
@@ -22,8 +23,20 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var backetModel = BacketModel()
    
+    
+    @objc func addToCartResponder(_ notif: Notification) {
+        if MainService.instance.getBacket().count > 0 {
+            basketBtn.image = UIImage(named: "check")// полная
+        } else {
+            basketBtn.image = UIImage(named: "cort")// пустая
+
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MenuController.addToCartResponder(_:)), name: NOTIF_ADD_TO_CART, object: nil)
         
         myMenuView.delegate = self
         myMenuView.dataSource = self

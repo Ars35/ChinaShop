@@ -21,6 +21,7 @@ let TO_ORDER_SEGUAE = "toOrderSeguae"
 
 //Notification Constants
 let NOTIF_ORDER_DONE = Notification.Name("notifUserDataChanged")
+let NOTIF_ADD_TO_CART = Notification.Name("notifAddToCart")
 
 /*
  https://sushiserver.herokuapp.com/

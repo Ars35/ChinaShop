@@ -20,6 +20,7 @@ class MenuCell: UICollectionViewCell {
         print("TestBtnPresed")
         self.dim()
         MainService.instance.addToBacket(forName: (menuItem?.name)!)
+        NotificationCenter.default.post(name: NOTIF_ADD_TO_CART, object: nil)
     }
     
     func dim() {
