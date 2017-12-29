@@ -13,11 +13,35 @@ import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    var originSpesialBottomCoord: CGFloat!
+    var originSpecialTopCoord: CGFloat!
+    
+    private func resizeUp() {
+        let newYCoordForSpecial = self.spesialImage.frame.origin.y - 1
+        print(newYCoordForSpecial)
+    
+        if newYCoordForSpecial >= originSpecialTopCoord - (originSpesialBottomCoord - originSpecialTopCoord) - 5 //must be 10
+        {
+            self.spesialImage.frame.origin.y = newYCoordForSpecial
+            print("Up")
+            self.myMenuView.frame.origin.y = newYCoordForSpecial + (originSpesialBottomCoord - originSpecialTopCoord) + 10
+        } else {
+            print("not up")
+        }
+
+//        self.myMenuView.frame.origin.y -= 1
+//        self.myMenuView.frame.size.height += 1
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let deltaOffset = maximumOffset - currentOffset
         print("Maximum: \(maximumOffset), Current: \(currentOffset), Delta: \(deltaOffset)")
+        resizeUp()
+        
+        
+//        spesialImage.frame.origin.y = currentY - currentOffset
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -73,6 +97,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        originSpesialBottomCoord = self.spesialImage.frame.maxY
+        originSpecialTopCoord = self.spesialImage.frame.minY
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(MenuController.addToCartResponder(_:)), name: NOTIF_ADD_TO_CART, object: nil)
         
