@@ -28,6 +28,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBAction func undoBtnPressed(_ sender: Any) {
         MainService.instance.removeLast()
+        NotificationCenter.default.post(name: NOTIF_ADD_TO_CART, object: nil)
         closeNotification()
     }
     
@@ -48,10 +49,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if MainService.instance.getBacket().count > 0 {
             self.showNotification()
-            basketBtn.image = UIImage(named: "check")// полная
+            basketBtn.image = UIImage(named: "cort-new.png")// полная
         } else {
-            basketBtn.image = UIImage(named: "check")// пустая
-
+            basketBtn.image = UIImage(named: "add shopping cart-new.png")// пустая
         }
     }
     
