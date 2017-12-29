@@ -10,10 +10,10 @@ import UIKit
 
 class PriceLable: UILabel {
     
-    let currency = "Anna Sushi"
+    let currency = "RMB"
     
     func setText(price: Double) {
-        self.text = " \(Int(price)) \(currency)  "
+        self.text = "  \(Int(price)) \(currency)     "
     }
     
     override func awakeFromNib() {

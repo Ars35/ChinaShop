@@ -126,14 +126,14 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item : MenuItem = menuItemsArray[indexPath.item]
-        //dobavit v service
-        //MainService.instance.addToBacket(forName: item.name)
-        
-        print("Added to backet \(item.name)")
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let item : MenuItem = menuItemsArray[indexPath.item]
+//        //dobavit v service
+//        //MainService.instance.addToBacket(forName: item.name)
+//
+//        print("Added to backet \(item.name)")
+//
+//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items

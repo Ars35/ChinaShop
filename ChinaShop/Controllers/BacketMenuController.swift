@@ -10,7 +10,7 @@ import UIKit
 
 extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
-        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont.systemFont(ofSize: 27, weight: UIFont.Weight.bold)]
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)]
         
         let boldString = NSMutableAttributedString(string:text, attributes: attrs)
         append(boldString)
