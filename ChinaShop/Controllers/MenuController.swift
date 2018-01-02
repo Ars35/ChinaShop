@@ -15,16 +15,27 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     var originSpesialBottomCoord: CGFloat!
     var originSpecialTopCoord: CGFloat!
+    var originSpecialHight: CGFloat!
+    var onePercenOfSpecialHeight: CGFloat!
+    var myMenuViewtargetHeight: CGFloat!
+    var myMenuViewOriginalHeight: CGFloat!
+    var myMenuViewOriginalTopCoord: CGFloat!
+    var onePercentOfMyViewHeigh:CGFloat!
     
     private func resizeUp() {
-        let newYCoordForSpecial = self.spesialImage.frame.origin.y - 1
+        let newYCoordForSpecial = self.spesialImage.frame.origin.y - onePercenOfSpecialHeight
         print(newYCoordForSpecial)
     
-        if newYCoordForSpecial >= originSpecialTopCoord - (originSpesialBottomCoord - originSpecialTopCoord) - 5 //must be 10
+        if newYCoordForSpecial >= originSpecialTopCoord - (originSpesialBottomCoord - originSpecialTopCoord) - 10 //must be 10
         {
             self.spesialImage.frame.origin.y = newYCoordForSpecial
             print("Up")
             self.myMenuView.frame.origin.y = newYCoordForSpecial + (originSpesialBottomCoord - originSpecialTopCoord) + 10
+            //Hight control
+            if self.myMenuView.frame.height < myMenuViewtargetHeight {
+                self.myMenuView.frame.size.height += 5 / 3
+            }
+            
         } else {
             print("not up")
         }
@@ -33,15 +44,63 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //        self.myMenuView.frame.size.height += 1
     }
     
+    var scrollGoDown = false
+    var currentScrollOffset : CGFloat = 0
+    var lastScrollOffset : CGFloat = 0
+    
+    private func scrollDirrection() {
+        if currentScrollOffset < lastScrollOffset {
+            print("Scroll Up")
+            scrollGoDown = false
+        } else {
+            print("Scroll Down")
+            scrollGoDown = true
+        }
+    }
+    
+    let hideTrashholdPercent = 10
+    
+    private func hideSpecial(_ duration: Int) {
+        let movvedCoord = self.originSpecialTopCoord - (self.originSpesialBottomCoord - self.originSpecialTopCoord) - 10 //must be 10
+        UIView.animate(withDuration: TimeInterval(duration)) {
+            self.spesialImage.frame.origin.y = movvedCoord
+            self.myMenuView.frame.origin.y = self.originSpecialTopCoord
+            self.myMenuView.frame.size.height = self.myMenuViewtargetHeight
+        }
+    }
+    
+    private func showSpecial(_ duration: Int) {
+        UIView.animate(withDuration: TimeInterval(duration)) {
+            self.spesialImage.frame.origin.y = self.originSpecialTopCoord
+            self.myMenuView.frame.origin.y = self.myMenuViewOriginalTopCoord
+            self.myMenuView.frame.size.height = self.myMenuViewOriginalHeight
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
+        currentScrollOffset = currentOffset
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let deltaOffset = maximumOffset - currentOffset
         print("Maximum: \(maximumOffset), Current: \(currentOffset), Delta: \(deltaOffset)")
-        resizeUp()
+        
+        scrollDirrection()
+        let calcTrashHold = maximumOffset / 100 * CGFloat(hideTrashholdPercent)
+        if scrollGoDown {
+            if currentOffset >= calcTrashHold {
+                //hide specials
+                hideSpecial(1)
+            }
+        } else {
+            if currentOffset < calcTrashHold {
+                //hide specials
+                showSpecial(1)
+            }
+        }
         
         
-//        spesialImage.frame.origin.y = currentY - currentOffset
+        lastScrollOffset = currentOffset
+        
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -97,8 +156,20 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentScrollOffset = self.myMenuView.contentSize.height - self.myMenuView.frame.size.height
+        lastScrollOffset = self.myMenuView.contentSize.height - self.myMenuView.frame.size.height
+        
+        
         originSpesialBottomCoord = self.spesialImage.frame.maxY
         originSpecialTopCoord = self.spesialImage.frame.minY
+        originSpecialHight = self.spesialImage.frame.height
+        myMenuViewOriginalHeight = myMenuView.frame.height
+        myMenuViewOriginalTopCoord = myMenuView.frame.minY
+        myMenuViewtargetHeight = myMenuView.frame.height + originSpecialHight
+        
+        onePercenOfSpecialHeight = (originSpesialBottomCoord - originSpecialTopCoord) / 100
+        onePercentOfMyViewHeigh = myMenuView.frame.height / 100
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(MenuController.addToCartResponder(_:)), name: NOTIF_ADD_TO_CART, object: nil)
