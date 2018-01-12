@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     var originSpesialBottomCoord: CGFloat!
@@ -93,7 +90,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         } else {
             if currentOffset < calcTrashHold {
-                //hide specials
+                //show specials
                 showSpecial(1)
             }
         }
@@ -122,6 +119,8 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
+
+    
     @IBOutlet weak var notificationView: UIView!
     @IBOutlet weak var basketBtn: UIBarButtonItem!
     @IBOutlet weak var spesialImage: UIImageView!
@@ -133,15 +132,21 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var backetModel = BacketModel()
    
+    @objc func toCart(_ sender: Any) {
+        closeNotification()
+        if MainService.instance.getBacket().count > 0 {
+            performSegue(withIdentifier: TO_BASKET_SEGUAE, sender: nil)
+        }
+        
+    }
     
     @objc func addToCartResponder(_ notif: Notification) {
+        let btn = KartItem.getItem(count: MainService.instance.getBacketTotal())
+        btn.addTarget(self, action: #selector(self.toCart), for: .touchUpInside)
         
-        if MainService.instance.getBacket().count > 0 {
-            self.showNotification()
-            basketBtn.image = UIImage(named: "cort-new.png")// полная
-        } else {
-            basketBtn.image = UIImage(named: "add shopping cart-new.png")// пустая
-        }
+        let rightButton = UIBarButtonItem(customView: btn)
+        self.navigationItem.rightBarButtonItem = rightButton
+        
     }
     
     private func closeNotification() {
@@ -154,8 +159,11 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         })
     }
     
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         currentScrollOffset = self.myMenuView.contentSize.height - self.myMenuView.frame.size.height
         lastScrollOffset = self.myMenuView.contentSize.height - self.myMenuView.frame.size.height
@@ -182,16 +190,20 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //test purpose
         DownloadService.instance.delegate = self
-       
-        //barbutton start
-        let donVTemp = UILabel()
-        donVTemp.sizeToFit()
-        donVTemp.text = "Anna Sushi"
-        donVTemp.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
-        let leftButton = UIBarButtonItem(customView: donVTemp)
+   
+//        //anna sushi lable on left
+        let leftLbl = UILabel()
+        leftLbl.sizeToFit()
+        leftLbl.text = "Anna Sushi"
+        leftLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let leftButton = UIBarButtonItem(customView: leftLbl)
         self.navigationItem.leftBarButtonItem = leftButton
-        //barbutton end
+//        //anna sushi lbl end
+
+        let btn = KartItem.getItem(count: 0)
+        let rightButton = UIBarButtonItem(customView: btn)
+        self.navigationItem.rightBarButtonItem = rightButton
+        //barbuttons end
         
        //загрузка меню
         MainService.instance.getItems { (error) in
@@ -240,7 +252,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
         return menuItemsArray.count
     }
 

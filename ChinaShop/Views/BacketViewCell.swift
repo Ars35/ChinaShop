@@ -32,7 +32,6 @@ class BacketViewCell: UITableViewCell {
                 menuItem!.count -= 1
             } else {
                 menuItem!.count = 0
-                
             }
             delegate?.cellViewUpdate(cellId: menuItem!)
         case "+":
@@ -43,6 +42,7 @@ class BacketViewCell: UITableViewCell {
         default:
             print("Default switch statment")
         }
+        NotificationCenter.default.post(name: NOTIF_ADD_TO_CART, object: nil)
     }
     
     func cellInit(item: MenuItem) {

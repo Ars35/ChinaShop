@@ -8,14 +8,60 @@
 
 import UIKit
 
-class KartView: UIImageView {
+class KartView: UIButton {
+    
+    var lbl: UILabel?
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        let lable = UILabel()
+        
+        lable.textAlignment = .center
+        lable.center = self.center
+        lable.frame.origin.x = self.frame.minX
+        lable.frame.origin.y = self.center.y - 5
+        lable.bounds.size.height = self.bounds.height
+        lable.bounds.size.width = self.bounds.width
+        lable.clipsToBounds = true
+        lable.layer.cornerRadius = lable.bounds.height / 2
+        lable.backgroundColor = UIColor.red
+        lable.text = "9+"
+        lable.textColor = UIColor.white
+        
+        
+        
+        
+        
+        lbl = lable
+        self.addSubview(lbl!)
     }
-    */
-
+    
+//    override init(image: UIImage?) {
+//        super.init(image: image)
+//        
+//        let lable = UILabel()
+//        lable.textAlignment = .center
+//        lable.center = self.center
+//        lable.frame.origin.x = self.frame.minX
+//        lable.frame.origin.y = self.center.y - 5
+//        lable.bounds.size.height = self.bounds.height
+//        lable.bounds.size.width = self.bounds.width
+//        lable.clipsToBounds = true
+//        lable.layer.cornerRadius = lable.bounds.height / 2
+//        lable.backgroundColor = UIColor.red
+//        lable.text = "9+"
+//        lable.textColor = UIColor.white
+//        
+//        
+//        lbl = lable
+//        
+//        self.addSubview(lbl!)
+//        
+//        
+//    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

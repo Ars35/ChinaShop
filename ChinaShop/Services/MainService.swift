@@ -86,6 +86,16 @@ class MainService {
         return backetArray
     }
     
+    func getBacketTotal() -> Int {
+        var total = 0
+        for item in itemList {
+            if item.count > 0 {
+                total += item.count
+            }
+        }
+        return total
+    }
+    
     func removeLast() {
         self.lastItem?.count -= 1
     }

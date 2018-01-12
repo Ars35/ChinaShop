@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8c1-LS-ZIh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="RfK-ln-San"/>
                             <constraint firstItem="8c1-LS-ZIh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dmT-W3-Cc6"/>
@@ -31,6 +31,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="lounchScreen" destination="8c1-LS-ZIh" id="ZPd-xd-qoS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
