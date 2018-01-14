@@ -204,8 +204,11 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let rightButton = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = rightButton
         //barbuttons end
-        
-       //загрузка меню
+        self.getMenuItems()
+       
+    }
+    private func getMenuItems() {
+        //загрузка меню
         MainService.instance.getItems { (error) in
             if error == "PARSING OK" {
                 self.menuItemsArray = MainService.instance.itemList
@@ -217,9 +220,29 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
             }else {
                 print(error)
+                let alertController = UIAlertController(title: "Communication Error", message: "\(error) \n Try Again?", preferredStyle: .alert)
+                
+                // Create the actions
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                    self.getMenuItems()
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+                    UIAlertAction in
+                    NSLog("Cancel Pressed")
+                }
+                
+                // Add the actions
+                alertController.addAction(okAction)
+                alertController.addAction(cancelAction)
+                
+                // Present the controller
+                self.present(alertController, animated: true, completion: nil)
             }
             
         }
+        
     }
     
     private func getSpecialList() {
@@ -237,6 +260,10 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print("SPECIAL URL STRING: \(specialUrlImage)")
             }else {
                 print(error)
+                let alert = UIAlertController(title: "Communication Error", message: error, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
             }
         }
        

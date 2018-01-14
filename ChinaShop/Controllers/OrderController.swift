@@ -91,6 +91,7 @@ class OrderController: UIViewController, UITextFieldDelegate {
     
     @objc func userOrderDone(_ notif: Notification) {
         MainService.instance.clearDataAfterSendAndReturnToTheMainController()
+        NotificationCenter.default.post(name: NOTIF_ADD_TO_CART, object: nil)
         self.navigationController?.popToRootViewController(animated: true)
     }
 
@@ -115,9 +116,10 @@ class OrderController: UIViewController, UITextFieldDelegate {
         guard let phone : String = textPhone.text! else {
             return
         }
-        
+        self.sendOrder(name: name, adress: adress, phone: phone)
+    }
+    private func sendOrder(name:String, adress: String, phone: String) {
         if self.validateFields() {
-            //
             MainService.instance.sendOrder(name: name, adress: adress, phone: phone) { (result) in
                 
                 if result == "PARSING OK" {
@@ -131,12 +133,14 @@ class OrderController: UIViewController, UITextFieldDelegate {
                 } else {
                     print("vse ploho")
                     //тут нужно вывести сообщение о том, что что то не так
+                    let alert = UIAlertController(title: "Communication Error", message: "Please contact: NUMBER NUMBER NUMBER", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
-            //
         }
         
-       
+        
     }
 }
 
