@@ -62,12 +62,13 @@ class DownloadService: NSObject, URLSessionDownloadDelegate {
         
         menuItem.localFilePath = destinationURL.path
         
-        self.delegate?.downloadCompleated(responce: downloadResp)
+        
+        self.delegate?.downloadCompleated(id: menuItem.id ,responce: downloadResp)
     }
 }
 
 protocol DownloadServiceDelegate {
-    func downloadCompleated(responce: DownloadResponce)
+    func downloadCompleated(id: String, responce: DownloadResponce)
 }
     
 

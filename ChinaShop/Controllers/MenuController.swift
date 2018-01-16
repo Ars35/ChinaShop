@@ -324,18 +324,29 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
 }
 
 extension MenuController: DownloadServiceDelegate {
-    func downloadCompleated(responce: DownloadResponce) {
+    func downloadCompleated(id : String, responce: DownloadResponce) {
 //        print("This is Message from delegate.")
         if responce.errorString != nil {
             print("Error: \(responce.errorString!)")
         } else {
-            
+            var i = 0
+            for item in MainService.instance.itemList {
+                
+                if item.id == id {
+                    break
+                }
+                i += 1
+            }
+            DispatchQueue.main.async {
+//                self.myMenuView.reloadData()
+                var indexPaths = [IndexPath]()
+                indexPaths.append(IndexPath(item: i, section: 0))
+                self.myMenuView.reloadItems(at: indexPaths)
+            }
 //            print("responce: \(responce.urlPatch!)")
         }
         
-        DispatchQueue.main.async {
-            self.myMenuView.reloadData()
-        }
+        
     }
     
     
