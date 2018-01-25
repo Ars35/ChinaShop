@@ -695,7 +695,6 @@
         <image name="DefaultItem" width="233" height="140"/>
         <image name="MainScreen" width="240" height="426"/>
         <image name="Trash" width="24" height="24"/>
-        <image name="basket-new.png" width="24" height="24"/>
         <image name="cart-empty" width="24" height="24"/>
     </resources>
 </document>

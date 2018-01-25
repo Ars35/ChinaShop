@@ -157,6 +157,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let rightButton = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = rightButton
+        showNotification()
         
     }
     
