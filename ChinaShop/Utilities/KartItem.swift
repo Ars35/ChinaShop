@@ -18,14 +18,14 @@ struct KartItem {
         switch count {
         case 0:
             countString = "0"
-            imageString = "add shopping cart-new.png"
+            imageString = "cart-empty"
             showLbl = false
         case 1...9:
             countString = "\(count)"
-            imageString = "cort-new.png"
+            imageString = "cart-full"
         default:
             countString = "9+"
-            imageString = "cort-new.png"
+            imageString = "cart-full"
         }
         
         let btn1 = UIButton(type: .custom)

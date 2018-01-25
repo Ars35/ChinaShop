@@ -44,6 +44,8 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var scrollGoDown = false
     var currentScrollOffset : CGFloat = 0
     var lastScrollOffset : CGFloat = 0
+    var animationStart = false
+    var lastSpecialState = true
     
     private func scrollDirrection() {
         if currentScrollOffset < lastScrollOffset {
@@ -84,14 +86,23 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         scrollDirrection()
         let calcTrashHold = maximumOffset / 100 * CGFloat(hideTrashholdPercent)
         if scrollGoDown {
-            if currentOffset >= calcTrashHold {
-                //hide specials
-                hideSpecial(1)
+            if currentOffset > calcTrashHold {
+                
+                if animationStart {
+                    
+                } else {
+                    //hide specials
+                    animationStart = true
+                    print("!!!hiding!!!")
+                    hideSpecial(1)
+                }
+                
+                
             }
         } else {
             if currentOffset < calcTrashHold {
                 //show specials
-                showSpecial(1)
+                //showSpecial(1)
             }
         }
         

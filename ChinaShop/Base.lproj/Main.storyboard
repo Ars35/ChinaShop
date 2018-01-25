@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -111,7 +110,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="9x7-we-eUy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultItem" translatesAutoresizingMaskIntoConstraints="NO" id="9x7-we-eUy">
                                 <rect key="frame" x="16" y="72" width="343" height="172.5"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="a9C-mm-ol3">
@@ -186,7 +185,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="6EV-OS-fdx">
                         <barButtonItem key="leftBarButtonItem" title="Anna Sushi" style="done" id="U6t-0b-bHm"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="add shopping cart-new.png" id="Gqm-ts-TNV">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart-empty" id="Gqm-ts-TNV">
                             <connections>
                                 <action selector="toCartBtnPressed:" destination="rB7-4A-ahg" id="shM-Cn-GmM"/>
                             </connections>
@@ -207,7 +206,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basket-new.png" translatesAutoresizingMaskIntoConstraints="NO" id="s47-wd-0yT">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="s47-wd-0yT">
                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="s47-wd-0yT" secondAttribute="height" multiplier="1:1" id="cV7-hE-XTu"/>
@@ -417,7 +416,7 @@
                         <viewLayoutGuide key="safeArea" id="1vP-5j-fo4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Basket" id="HNz-hT-f6g">
-                        <barButtonItem key="rightBarButtonItem" image="basket-new.png" id="oym-eK-yXh">
+                        <barButtonItem key="rightBarButtonItem" image="Trash" id="oym-eK-yXh">
                             <connections>
                                 <action selector="cancelPressed:" destination="GKY-jI-a9s" id="h8z-lz-LU4"/>
                             </connections>
@@ -645,7 +644,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LounchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="XiR-Re-QGX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="XiR-Re-QGX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
@@ -693,9 +692,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LounchScreen" width="720" height="1280"/>
-        <image name="add shopping cart-new.png" width="24" height="24"/>
+        <image name="DefaultItem" width="233" height="140"/>
+        <image name="MainScreen" width="240" height="426"/>
+        <image name="Trash" width="24" height="24"/>
         <image name="basket-new.png" width="24" height="24"/>
-        <image name="default_image" width="280" height="280"/>
+        <image name="cart-empty" width="24" height="24"/>
     </resources>
 </document>

@@ -25,17 +25,12 @@
 		A6E22CAC1FDC6DE700E0B191 /* SpecialsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E22CAB1FDC6DE700E0B191 /* SpecialsStruct.swift */; };
 		A6E497281FDAD4C5000D7998 /* Responce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E497271FDAD4C5000D7998 /* Responce.swift */; };
 		A6ECDFF01FC862C0005E04FC /* BacketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECDFEF1FC862C0005E04FC /* BacketViewCell.swift */; };
+		FF06C6602019D88B0049671C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF06C65F2019D88B0049671C /* Media.xcassets */; };
 		FF0F584E2007F80300E2F4F0 /* ValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F584D2007F80300E2F4F0 /* ValidatedTextField.swift */; };
 		FF0F585220081F6700E2F4F0 /* KartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F585120081F6700E2F4F0 /* KartView.swift */; };
 		FF0F585420082B6C00E2F4F0 /* KartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F585320082B6C00E2F4F0 /* KartItem.swift */; };
-		FF23C1B91FF64C4A00A3BC9B /* add shopping cart-new.png in Resources */ = {isa = PBXBuildFile; fileRef = FF23C1B81FF64C4A00A3BC9B /* add shopping cart-new.png */; };
-		FF23C1BB1FF64C9300A3BC9B /* basket-new.png in Resources */ = {isa = PBXBuildFile; fileRef = FF23C1BA1FF64C9300A3BC9B /* basket-new.png */; };
-		FF23C1BD1FF64C9C00A3BC9B /* cort-new.png in Resources */ = {isa = PBXBuildFile; fileRef = FF23C1BC1FF64C9C00A3BC9B /* cort-new.png */; };
 		FF2455AE1FCC3F55005BBF45 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2455AD1FCC3F55005BBF45 /* DownloadService.swift */; };
 		FF2455B01FCDF369005BBF45 /* PriceLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2455AF1FCDF369005BBF45 /* PriceLable.swift */; };
-		FF316C931FC4B511001B81AD /* shNJEUrL1ps.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C8F1FC4B511001B81AD /* shNJEUrL1ps.jpg */; };
-		FF316C941FC4B511001B81AD /* 3u_404btaj4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */; };
-		FF316C951FC4B511001B81AD /* s84BefN8uCw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */; };
 		FF39B59B2002BC41002AFE40 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF39B59A2002BC41002AFE40 /* LaunchViewController.swift */; };
 		FF39B59D2002E442002AFE40 /* ValidationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF39B59C2002E442002AFE40 /* ValidationErrorView.swift */; };
 		FF8B4DED1FD374E40021821F /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B4DEC1FD374E40021821F /* MainService.swift */; };
@@ -61,23 +56,17 @@
 		A6414D781FBC686800FFD903 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		A6414D7D1FBC697A00FFD903 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		A6414D7F1FBC6A3600FFD903 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		A6560AC81FED590700B81814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6CAD4111FC3071700230DB7 /* BacketMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacketMenuController.swift; sourceTree = "<group>"; };
 		A6CC91D01FDBD9EE00B1BC5D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		A6E22CAB1FDC6DE700E0B191 /* SpecialsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialsStruct.swift; sourceTree = "<group>"; };
 		A6E497271FDAD4C5000D7998 /* Responce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responce.swift; sourceTree = "<group>"; };
 		A6ECDFEF1FC862C0005E04FC /* BacketViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacketViewCell.swift; sourceTree = "<group>"; };
+		FF06C65F2019D88B0049671C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		FF0F584D2007F80300E2F4F0 /* ValidatedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedTextField.swift; sourceTree = "<group>"; };
 		FF0F585120081F6700E2F4F0 /* KartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KartView.swift; sourceTree = "<group>"; };
 		FF0F585320082B6C00E2F4F0 /* KartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KartItem.swift; sourceTree = "<group>"; };
-		FF23C1B81FF64C4A00A3BC9B /* add shopping cart-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add shopping cart-new.png"; sourceTree = "<group>"; };
-		FF23C1BA1FF64C9300A3BC9B /* basket-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basket-new.png"; sourceTree = "<group>"; };
-		FF23C1BC1FF64C9C00A3BC9B /* cort-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cort-new.png"; sourceTree = "<group>"; };
 		FF2455AD1FCC3F55005BBF45 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		FF2455AF1FCDF369005BBF45 /* PriceLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLable.swift; sourceTree = "<group>"; };
-		FF316C8F1FC4B511001B81AD /* shNJEUrL1ps.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shNJEUrL1ps.jpg; sourceTree = "<group>"; };
-		FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3u_404btaj4.jpg; sourceTree = "<group>"; };
-		FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s84BefN8uCw.jpg; sourceTree = "<group>"; };
 		FF39B59A2002BC41002AFE40 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		FF39B59C2002E442002AFE40 /* ValidationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorView.swift; sourceTree = "<group>"; };
 		FF8B4DEC1FD374E40021821F /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
@@ -119,16 +108,15 @@
 			children = (
 				FFE5EC081FD6C46D00C86643 /* Utilities */,
 				FF2455AC1FCC3F20005BBF45 /* Services */,
-				FF316C8D1FC4B4F8001B81AD /* JPG ORIGIN */,
+				A6414D7B1FBC690300FFD903 /* model */,
+				A6414D751FBC664700FFD903 /* Views */,
+				A6414D741FBC661000FFD903 /* Controllers */,
 				A6414D601FBC655F00FFD903 /* AppDelegate.swift */,
 				A6414D621FBC655F00FFD903 /* ViewController.swift */,
 				A6414D641FBC655F00FFD903 /* Main.storyboard */,
 				A6414D691FBC655F00FFD903 /* LaunchScreen.storyboard */,
-				A6560AC81FED590700B81814 /* Assets.xcassets */,
+				FF06C65F2019D88B0049671C /* Media.xcassets */,
 				A6414D6C1FBC655F00FFD903 /* Info.plist */,
-				A6414D7B1FBC690300FFD903 /* model */,
-				A6414D751FBC664700FFD903 /* Views */,
-				A6414D741FBC661000FFD903 /* Controllers */,
 			);
 			path = ChinaShop;
 			sourceTree = "<group>";
@@ -183,19 +171,6 @@
 				FFE5EC061FD6C3E800C86643 /* SpecialsService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		FF316C8D1FC4B4F8001B81AD /* JPG ORIGIN */ = {
-			isa = PBXGroup;
-			children = (
-				FF316C901FC4B511001B81AD /* 3u_404btaj4.jpg */,
-				FF23C1B81FF64C4A00A3BC9B /* add shopping cart-new.png */,
-				FF23C1BA1FF64C9300A3BC9B /* basket-new.png */,
-				FF23C1BC1FF64C9C00A3BC9B /* cort-new.png */,
-				FF316C911FC4B511001B81AD /* s84BefN8uCw.jpg */,
-				FF316C8F1FC4B511001B81AD /* shNJEUrL1ps.jpg */,
-			);
-			path = "JPG ORIGIN";
 			sourceTree = "<group>";
 		};
 		FFE5EC081FD6C46D00C86643 /* Utilities */ = {
@@ -266,15 +241,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF316C931FC4B511001B81AD /* shNJEUrL1ps.jpg in Resources */,
+				FF06C6602019D88B0049671C /* Media.xcassets in Resources */,
 				A6414D6B1FBC655F00FFD903 /* LaunchScreen.storyboard in Resources */,
-				FF23C1BB1FF64C9300A3BC9B /* basket-new.png in Resources */,
-				FF316C951FC4B511001B81AD /* s84BefN8uCw.jpg in Resources */,
-				FF316C941FC4B511001B81AD /* 3u_404btaj4.jpg in Resources */,
 				FFE260C31FF0F2F900EDAC2F /* DoneVC.xib in Resources */,
-				FF23C1B91FF64C4A00A3BC9B /* add shopping cart-new.png in Resources */,
 				A6414D661FBC655F00FFD903 /* Main.storyboard in Resources */,
-				FF23C1BD1FF64C9C00A3BC9B /* cort-new.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,12 +418,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6G95F4762T;
+				DEVELOPMENT_TEAM = CH6GQXAMK3;
 				INFOPLIST_FILE = ChinaShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ars.ChinaShop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ars.ChinaShop.trg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -464,12 +435,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6G95F4762T;
+				DEVELOPMENT_TEAM = CH6GQXAMK3;
 				INFOPLIST_FILE = ChinaShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ars.ChinaShop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ars.ChinaShop.trg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
