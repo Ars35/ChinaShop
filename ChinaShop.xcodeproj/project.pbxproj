@@ -29,6 +29,7 @@
 		FF0F584E2007F80300E2F4F0 /* ValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F584D2007F80300E2F4F0 /* ValidatedTextField.swift */; };
 		FF0F585220081F6700E2F4F0 /* KartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F585120081F6700E2F4F0 /* KartView.swift */; };
 		FF0F585420082B6C00E2F4F0 /* KartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F585320082B6C00E2F4F0 /* KartItem.swift */; };
+		FF22DD9C201B45F20027D726 /* MenuControllerExtenshion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF22DD9B201B45F20027D726 /* MenuControllerExtenshion.swift */; };
 		FF2455AE1FCC3F55005BBF45 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2455AD1FCC3F55005BBF45 /* DownloadService.swift */; };
 		FF2455B01FCDF369005BBF45 /* PriceLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2455AF1FCDF369005BBF45 /* PriceLable.swift */; };
 		FF39B59B2002BC41002AFE40 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF39B59A2002BC41002AFE40 /* LaunchViewController.swift */; };
@@ -65,6 +66,7 @@
 		FF0F584D2007F80300E2F4F0 /* ValidatedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedTextField.swift; sourceTree = "<group>"; };
 		FF0F585120081F6700E2F4F0 /* KartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KartView.swift; sourceTree = "<group>"; };
 		FF0F585320082B6C00E2F4F0 /* KartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KartItem.swift; sourceTree = "<group>"; };
+		FF22DD9B201B45F20027D726 /* MenuControllerExtenshion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerExtenshion.swift; sourceTree = "<group>"; };
 		FF2455AD1FCC3F55005BBF45 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		FF2455AF1FCDF369005BBF45 /* PriceLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLable.swift; sourceTree = "<group>"; };
 		FF39B59A2002BC41002AFE40 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				A6CAD4111FC3071700230DB7 /* BacketMenuController.swift */,
 				A63720911FE405FC00E1BFFF /* OrderController.swift */,
 				FF39B59A2002BC41002AFE40 /* LaunchViewController.swift */,
+				FF22DD9B201B45F20027D726 /* MenuControllerExtenshion.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				A62E73F01FED73830098611B /* UIViewExtension.swift in Sources */,
 				A62E73F21FED79000098611B /* UIButtonExtension.swift in Sources */,
 				A6414D7E1FBC697A00FFD903 /* MenuModel.swift in Sources */,
+				FF22DD9C201B45F20027D726 /* MenuControllerExtenshion.swift in Sources */,
 				A6414D801FBC6A3600FFD903 /* MenuItem.swift in Sources */,
 				FF2455AE1FCC3F55005BBF45 /* DownloadService.swift in Sources */,
 				A6414D791FBC686800FFD903 /* MenuCell.swift in Sources */,

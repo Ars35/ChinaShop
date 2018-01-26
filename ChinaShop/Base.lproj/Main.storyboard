@@ -164,6 +164,14 @@
                                     <constraint firstItem="3J2-Zw-DZ6" firstAttribute="leading" secondItem="7DM-II-yHz" secondAttribute="leading" constant="50" id="xeZ-gS-rKJ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSH-0H-v3N">
+                                <rect key="frame" x="26" y="83" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="testbtnPressed:" destination="rB7-4A-ahg" eventType="touchUpInside" id="okr-Ki-nlH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>

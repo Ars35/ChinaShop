@@ -9,110 +9,27 @@
 import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    var originSpesialBottomCoord: CGFloat!
-    var originSpecialTopCoord: CGFloat!
-    var originSpecialHight: CGFloat!
-    var onePercenOfSpecialHeight: CGFloat!
-    var myMenuViewtargetHeight: CGFloat!
-    var myMenuViewOriginalHeight: CGFloat!
-    var myMenuViewOriginalTopCoord: CGFloat!
-    var onePercentOfMyViewHeigh:CGFloat!
     
-    private func resizeUp() {
-        let newYCoordForSpecial = self.spesialImage.frame.origin.y - onePercenOfSpecialHeight
-        print(newYCoordForSpecial)
-    
-        if newYCoordForSpecial >= originSpecialTopCoord - (originSpesialBottomCoord - originSpecialTopCoord) - 10 //must be 10
-        {
-            self.spesialImage.frame.origin.y = newYCoordForSpecial
-            print("Up")
-            self.myMenuView.frame.origin.y = newYCoordForSpecial + (originSpesialBottomCoord - originSpecialTopCoord) + 10
-            //Hight control
-            if self.myMenuView.frame.height < myMenuViewtargetHeight {
-                self.myMenuView.frame.size.height += 5 / 3
-            }
-            
-        } else {
-            print("not up")
-        }
-
-//        self.myMenuView.frame.origin.y -= 1
-//        self.myMenuView.frame.size.height += 1
-    }
-    
+    //Varaibles
     var scrollGoDown = false
     var currentScrollOffset : CGFloat = 0
     var lastScrollOffset : CGFloat = 0
-    var animationStart = false
-    var lastSpecialState = true
     
-    private func scrollDirrection() {
-        if currentScrollOffset < lastScrollOffset {
-            print("Scroll Up")
-            scrollGoDown = false
-        } else {
-            print("Scroll Down")
-            scrollGoDown = true
-        }
-    }
+    var menuItemsArray = [MenuItem]()
+    var backetModel = BacketModel()
+    var testVar: CGFloat?
     
-    let hideTrashholdPercent = 10
+    //Outlets
+    @IBOutlet weak var notificationView: UIView!
+    @IBOutlet weak var basketBtn: UIBarButtonItem!
+    @IBOutlet weak var spesialImage: UIImageView!
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
+    @IBOutlet weak var myMenuView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    private func hideSpecial(_ duration: Int) {
-        let movvedCoord = self.originSpecialTopCoord - (self.originSpesialBottomCoord - self.originSpecialTopCoord) - 10 //must be 10
-        UIView.animate(withDuration: TimeInterval(duration)) {
-            self.spesialImage.frame.origin.y = movvedCoord
-            self.myMenuView.frame.origin.y = self.originSpecialTopCoord
-            self.myMenuView.frame.size.height = self.myMenuViewtargetHeight
-        }
-    }
-    
-    private func showSpecial(_ duration: Int) {
-        UIView.animate(withDuration: TimeInterval(duration)) {
-            self.spesialImage.frame.origin.y = self.originSpecialTopCoord
-            self.myMenuView.frame.origin.y = self.myMenuViewOriginalTopCoord
-            self.myMenuView.frame.size.height = self.myMenuViewOriginalHeight
-        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentOffset = scrollView.contentOffset.y
-        currentScrollOffset = currentOffset
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        let deltaOffset = maximumOffset - currentOffset
-        print("Maximum: \(maximumOffset), Current: \(currentOffset), Delta: \(deltaOffset)")
-        
-        scrollDirrection()
-        let calcTrashHold = maximumOffset / 100 * CGFloat(hideTrashholdPercent)
-        if scrollGoDown {
-            if currentOffset > calcTrashHold {
-                
-                if animationStart {
-                    
-                } else {
-                    //hide specials
-                    animationStart = true
-                    print("!!!hiding!!!")
-                    hideSpecial(1)
-                }
-                
-                
-            }
-        } else {
-            if currentOffset < calcTrashHold {
-                //show specials
-                //showSpecial(1)
-            }
-        }
-        
-        
-        lastScrollOffset = currentOffset
-        
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        closeNotification()
+    //Actions
+    @IBAction func testbtnPressed(_ sender: Any) {
+        self.hideAndMove()
     }
     
     @IBAction func toCartBtnPressed(_ sender: Any) {
@@ -128,21 +45,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         NotificationCenter.default.post(name: NOTIF_ADD_TO_CART, object: nil)
         closeNotification()
     }
-    
-    
-
-    
-    @IBOutlet weak var notificationView: UIView!
-    @IBOutlet weak var basketBtn: UIBarButtonItem!
-    @IBOutlet weak var spesialImage: UIImageView!
-    @IBOutlet weak var doneBtn: UIBarButtonItem!
-    @IBOutlet weak var myMenuView: UICollectionView!
-    
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    var menuItemsArray = [MenuItem]()
-    
-    var backetModel = BacketModel()
-   
+    //Responders
     @objc func toCart(_ sender: Any) {
         closeNotification()
         if MainService.instance.getBacket().count > 0 {
@@ -161,36 +64,28 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
-    private func closeNotification() {
-        notificationView.isHidden = true
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        currentScrollOffset = currentOffset
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        print("testVarIs: \(self.spesialImage.frame.origin.y)")
+        print("Maximum: \(maximumOffset), Current: \(currentOffset), Delta: \(deltaOffset)")
+//        scrollDirrection()
+        
     }
-    private func showNotification() {
-        notificationView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            self.closeNotification()
-        })
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        closeNotification()
     }
+    
+    
+    
     
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        currentScrollOffset = self.myMenuView.contentSize.height - self.myMenuView.frame.size.height
-        lastScrollOffset = self.myMenuView.contentSize.height - self.myMenuView.frame.size.height
-        
-        
-        originSpesialBottomCoord = self.spesialImage.frame.maxY
-        originSpecialTopCoord = self.spesialImage.frame.minY
-        originSpecialHight = self.spesialImage.frame.height
-        myMenuViewOriginalHeight = myMenuView.frame.height
-        myMenuViewOriginalTopCoord = myMenuView.frame.minY
-        myMenuViewtargetHeight = myMenuView.frame.height + originSpecialHight
-        
-        onePercenOfSpecialHeight = (originSpesialBottomCoord - originSpecialTopCoord) / 100
-        onePercentOfMyViewHeigh = myMenuView.frame.height / 100
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(MenuController.addToCartResponder(_:)), name: NOTIF_ADD_TO_CART, object: nil)
         
@@ -217,8 +112,12 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.navigationItem.rightBarButtonItem = rightButton
         //barbuttons end
         self.getMenuItems()
+        
+        self.testVar =  self.spesialImage.frame.origin.y
        
     }
+    
+    
     private func getMenuItems() {
         //загрузка меню
         MainService.instance.getItems { (error) in
@@ -269,7 +168,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let specialUrlImage = SpecialService.instance.spesialList[0].imageUrl
                 
                 self.load_image(urlString: specialUrlImage!)
-                print("SPECIAL URL STRING: \(specialUrlImage)")
+//                print("SPECIAL URL STRING: \(specialUrlImage)")
             }else {
                 print(error)
                 let alert = UIAlertController(title: "Communication Error", message: error, preferredStyle: UIAlertControllerStyle.alert)
@@ -280,15 +179,6 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
        
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let item : MenuItem = menuItemsArray[indexPath.item]
-//        //dobavit v service
-//        //MainService.instance.addToBacket(forName: item.name)
-//
-//        print("Added to backet \(item.name)")
-//
-//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -330,7 +220,19 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
             completionHandler: {(response: URLResponse!,data: Data!,error: Error!) -> Void in
                 if error == nil {
                     self.spesialImage.image = UIImage(data: data)
+                    debugPrint("Special Image Set!")
                 }
+        })
+    }
+    
+    //Notifications
+    private func closeNotification() {
+        notificationView.isHidden = true
+    }
+    private func showNotification() {
+        notificationView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+            self.closeNotification()
         })
     }
 }
