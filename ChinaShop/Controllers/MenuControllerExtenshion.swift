@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 extension MenuController {
     
-    func changPosition() {
+    func changePosition() {
         let speshiialHeight = self.spesialImage.frame.height
         
         isSpeshialHidded = !isSpeshialHidded
@@ -23,13 +23,13 @@ extension MenuController {
     
     
     
-    func scrollDirrection() {
+    func scrollDirrection(){
         
         if currentScrollOffset < lastScrollOffset {
-            print("Scroll Up")
+//            print("Scroll Up")
             scrollGoDown = false
         } else {
-            print("Scroll Down")
+//            print("Scroll Down")
             scrollGoDown = true
         }
     }

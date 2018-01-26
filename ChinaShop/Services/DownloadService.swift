@@ -48,9 +48,9 @@ class DownloadService: NSObject, URLSessionDownloadDelegate {
         try? fileManager.removeItem(at: destinationURL)
         do {
             try fileManager.copyItem(at: location, to: destinationURL)
-            print("!!File copied!!")
+            debugPrint("!!File copied!!")
         } catch let error {
-            print("Could not copy file to disk: \(error.localizedDescription)")
+            debugPrint("Could not copy file to disk: \(error.localizedDescription)")
         }
         //ооо
         

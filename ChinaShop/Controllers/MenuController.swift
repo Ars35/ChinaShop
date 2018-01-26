@@ -32,10 +32,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var constr: NSLayoutConstraint!
     
     //Actions
-    @IBAction func testbtnPressed(_ sender: Any) {
-//        self.hideAndMove()
-        self.changPosition()
-    }
+
     
     @IBAction func toCartBtnPressed(_ sender: Any) {
         closeNotification()
@@ -65,7 +62,10 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let rightButton = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = rightButton
-        showNotification()
+        if MainService.instance.getBacketTotal() != 0 {
+           showNotification()
+        }
+        
         
     }
     
@@ -75,10 +75,18 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let deltaOffset = maximumOffset - currentOffset
         
-        print("testVarIs: \(self.spesialImage.frame.origin.y)")
-        print("Maximum: \(maximumOffset), Current: \(currentOffset), Delta: \(deltaOffset)")
-//        scrollDirrection()
         
+//        print("Maximum: \(maximumOffset), Current: \(currentOffset), Delta: \(deltaOffset)")
+        scrollDirrection()
+        if scrollGoDown && !isSpeshialHidded && currentOffset >= 200 {
+//            print("nushno Ubrat")
+            self.changePosition()
+        }
+        if !scrollGoDown && isSpeshialHidded && currentOffset <= 50 {
+//            print("nushno Pokazat")
+            self.changePosition()
+        }
+        lastScrollOffset = currentScrollOffset
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
