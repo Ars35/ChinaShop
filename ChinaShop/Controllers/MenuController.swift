@@ -10,6 +10,7 @@ import UIKit
 
 class MenuController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    
     //Varaibles
     var scrollGoDown = false
     var currentScrollOffset : CGFloat = 0
@@ -18,6 +19,7 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var menuItemsArray = [MenuItem]()
     var backetModel = BacketModel()
     var testVar: CGFloat?
+    var isSpeshialHidded = false
     
     //Outlets
     @IBOutlet weak var notificationView: UIView!
@@ -27,9 +29,12 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var myMenuView: UICollectionView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    @IBOutlet weak var constr: NSLayoutConstraint!
+    
     //Actions
     @IBAction func testbtnPressed(_ sender: Any) {
-        self.hideAndMove()
+//        self.hideAndMove()
+        self.changPosition()
     }
     
     @IBAction func toCartBtnPressed(_ sender: Any) {
@@ -215,12 +220,16 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let imgURL: URL = URL(string: urlString)!
         let request: URLRequest = URLRequest(url: imgURL)
+        
         NSURLConnection.sendAsynchronousRequest(
             request, queue: OperationQueue.main,
             completionHandler: {(response: URLResponse!,data: Data!,error: Error!) -> Void in
                 if error == nil {
-                    self.spesialImage.image = UIImage(data: data)
-                    debugPrint("Special Image Set!")
+                    DispatchQueue.main.async {
+                        self.spesialImage.image = UIImage(data: data)
+                        debugPrint("Special Image Set!")
+                    }
+                    
                 }
         })
     }

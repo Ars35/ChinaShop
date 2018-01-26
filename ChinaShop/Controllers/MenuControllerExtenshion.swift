@@ -7,13 +7,21 @@
 //
 
 import Foundation
-
+import UIKit
 extension MenuController {
     
-    
-    func hideAndMove() {
-        self.spesialImage.frame.origin.y = self.spesialImage.frame.origin.y - self.spesialImage.frame.height
+    func changPosition() {
+        let speshiialHeight = self.spesialImage.frame.height
+        
+        isSpeshialHidded = !isSpeshialHidded
+        constr.constant = isSpeshialHidded ? -speshiialHeight : 8
+
+        UIView.animate(withDuration: 1) {
+                self.view.layoutIfNeeded()
+        }
     }
+    
+    
     
     func scrollDirrection() {
         

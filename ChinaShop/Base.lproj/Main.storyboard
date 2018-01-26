@@ -187,7 +187,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9x7-we-eUy" secondAttribute="trailing" id="jWc-kS-QV4"/>
                             <constraint firstItem="a9C-mm-ol3" firstAttribute="centerY" secondItem="1dm-pq-bmg" secondAttribute="centerY" constant="-50" id="jlk-hp-5GR"/>
                             <constraint firstItem="c5e-uv-ViX" firstAttribute="top" secondItem="9x7-we-eUy" secondAttribute="bottom" constant="6" id="yfX-7e-WP0"/>
-                            <constraint firstItem="9x7-we-eUy" firstAttribute="top" secondItem="Bke-9T-FPh" secondAttribute="top" constant="8" id="zy2-t0-cyX"/>
+                            <constraint firstItem="9x7-we-eUy" firstAttribute="top" secondItem="Bke-9T-FPh" secondAttribute="top" constant="8" identifier="SpConstOne" id="zy2-t0-cyX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bke-9T-FPh"/>
                     </view>
@@ -201,6 +201,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="basketBtn" destination="Gqm-ts-TNV" id="Kwi-Ra-KQS"/>
+                        <outlet property="constr" destination="zy2-t0-cyX" id="wRi-Aq-QBo"/>
                         <outlet property="doneBtn" destination="Gqm-ts-TNV" id="YUG-MX-V1W"/>
                         <outlet property="myMenuView" destination="c5e-uv-ViX" id="oku-Px-TgE"/>
                         <outlet property="notificationView" destination="7DM-II-yHz" id="YuW-Yg-Ldg"/>
@@ -242,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beu-rU-QTI" customClass="GradientView" customModule="ChinaShop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="510" width="375" height="73.5"/>
+                                <rect key="frame" x="0.0" y="509.5" width="375" height="74"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="topColor">
