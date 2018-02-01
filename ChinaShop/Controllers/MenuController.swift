@@ -127,8 +127,9 @@ class MenuController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.getMenuItems()
         
         self.testVar =  self.spesialImage.frame.origin.y
-       
+        
     }
+    
     
     
     private func getMenuItems() {

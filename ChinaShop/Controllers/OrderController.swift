@@ -19,12 +19,24 @@ class OrderController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textAdress: ValidatedTextField!
     @IBOutlet weak var textPhone: ValidatedTextField!
     
-    func buttonsParametrs() {
+    func ititView() {
+        let keyboardClosetap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OrderController.dismissKeyboard))
+        
+        view.addGestureRecognizer(keyboardClosetap)
+        
+        
+        //tags
+        textName.tag = 1
+        textPhone.tag = 2
+        textAdress.tag = 3
         
         orderButton.layer.cornerRadius = 10
         orderButton.clipsToBounds = true
         orderButton.backgroundColor = #colorLiteral(red: 0.737254902, green: 0, blue: 0.1764705882, alpha: 1)
         
+        textName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
+        textPhone.attributedPlaceholder = NSAttributedString(string: "Phone", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
+        textAdress.attributedPlaceholder = NSAttributedString(string: "Street,  Number,  Appartment", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -40,14 +52,12 @@ class OrderController: UIViewController, UITextFieldDelegate {
             if item.validateForTelephone() {
                 view.viewWithTag(3)?.becomeFirstResponder()
             }
-            
+
         case 3:
             let item = textField as! ValidatedTextField
             if item.validateForName() {
                 textField.resignFirstResponder()
             }
-            
-
         default:
             textField.resignFirstResponder()
         }
@@ -58,23 +68,9 @@ class OrderController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tags
-        textName.tag = 1
-        textPhone.tag = 2
-        textAdress.tag = 3
-        
-        
-        let keyboardClosetap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        
-        view.addGestureRecognizer(keyboardClosetap)
-        
-        textName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
-        textPhone.attributedPlaceholder = NSAttributedString(string: "Phone", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
-        textAdress.attributedPlaceholder = NSAttributedString(string: "Street,  Number,  Appartment", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) ])
-            buttonsParametrs()
+        ititView()
 
         NotificationCenter.default.addObserver(self, selector: #selector(OrderController.userOrderDone(_:)), name: NOTIF_ORDER_DONE, object: nil)
-        
         registerForKeyboardNotifications()
     }
     
@@ -107,13 +103,13 @@ class OrderController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func SendOrder(_ sender: Any) {
-        guard let name : String = textName.text! else {
+        guard let name = textName.text else {
             return
         }
-        guard let adress : String = textAdress.text! else {
+        guard let adress  = textAdress.text else {
             return
         }
-        guard let phone : String = textPhone.text! else {
+        guard let phone  = textPhone.text else {
             return
         }
         self.sendOrder(name: name, adress: adress, phone: phone)

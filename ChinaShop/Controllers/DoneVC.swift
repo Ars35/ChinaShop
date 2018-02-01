@@ -16,16 +16,15 @@ class DoneVC: UIViewController {
         setupView()
 
     }
-    @IBAction func logoutPressed(_ sender: Any) {
-        //UserDataServices.instance.logoutUser()
-        //NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGED, object: nil)
-        //dismiss(animated: true, completion: nil)
-    }
+    
+
     
     func setupView() {
+        //-50
+        doneImage.backgroundColor = UIColor.purple
+        doneImage.layer.cornerRadius = 0.5 * doneImage.bounds.size.width
         doneImage.clipsToBounds = true
-        doneImage.layer.cornerRadius = doneImage.frame.height / 2
-       
+        
         
         let closeTouch = UITapGestureRecognizer(target: self, action: #selector(DoneVC.closeTap(_:)))
         bgView.addGestureRecognizer(closeTouch)

@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,10 +26,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Done" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-aK-EWf">
-                    <rect key="frame" x="25" y="171" width="325" height="325"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="cX5-aK-EWf" secondAttribute="height" multiplier="1:1" id="s2B-gI-7Cf"/>
-                    </constraints>
+                    <rect key="frame" x="72.5" y="218.5" width="230" height="230"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +36,6 @@
                 <constraint firstItem="cX5-aK-EWf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XSs-Cz-R0C"/>
                 <constraint firstItem="4Ay-We-N0z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZdH-6d-aYS"/>
                 <constraint firstItem="4Ay-We-N0z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bcw-PJ-TRh"/>
-                <constraint firstItem="cX5-aK-EWf" firstAttribute="width" secondItem="4Ay-We-N0z" secondAttribute="width" constant="-50" id="hUO-Tz-R9s"/>
                 <constraint firstItem="cX5-aK-EWf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="n9W-zB-LTh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
